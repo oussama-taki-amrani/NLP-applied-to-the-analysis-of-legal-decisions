@@ -5,6 +5,7 @@ import csv
 train_folder_path = "train_folder_predilex/train_folder/txt_files/"
 train_files_ids_path = "train_folder_predilex/train_folder/x_train_ids.csv"
 
+
 def month_to_num(month):
     if month[0:3]=="jan":
         return 1
