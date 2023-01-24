@@ -1,0 +1,838 @@
+Le : 12/11/2019
+ 
+ 
+Cour d’appel de Bordeaux 
+ 
+ct0045 
+ 
+Audience publique du 1 octobre 2008 
+ 
+N° de RG: 07/00309 
+ 
+ 
+ 
+ 
+REPUBLIQUE FRANCAISE
+ 
+AU NOM DU PEUPLE FRANCAIS
+ 
+ 
+COUR D’APPEL DE BORDEAUX 
+ 
+ 
+CINQUIÈME CHAMBRE CIVILE
+ 
+ 
+-------------------------- 
+ 
+ 
+ 
+ 
+ARRÊT DU : 1ER octobre 2008 
+ 
+ 
+(Rédacteur : Monsieur Robert MIORI, Président) 
+ 
+ 
+IT 
+ 
+ 
+No de rôle : 07 / 00309 
+ 
+ 
+ 
+ 
+Madame Nathalie X... 
+ 
+ 
+ 
+c / 
+ 
+ 
+Monsieur Guy Y... 
+ 
+PAVILLON DE LA MUTUALITE 
+ 
+LA CPAM DE LA GIRONDE 
+ 
+Compagnie d’assurances M. A. C. S. F. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Nature de la décision : AU FOND 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Grosse délivrée le : 
+ 
+ 
+aux avoués : Décision déférée à la Cour : jugement rendu le 10 mai 2006 par le Tribunal de Grande Instance de BORDEAUX suivant déclaration d’appel du 19 janvier 2007 
+ 
+ 
+ 
+APPELANTE : 
+ 
+ 
+ 
+Madame Nathalie X... née le 16 Décembre 1966 à LA REOLE (33190) 
+ 
+de nationalité française Profession : Monitrice d’atelier demeurant ... 
+ 
+ 
+Représentée par la SCP CASTEJA-CLERMONTEL & JAUBERT, avoués à la Cour assistée de Maître MARCONI avocat au barreau de BORDEAUX 
+ 
+ 
+ 
+INTIMÉS : 
+ 
+ 
+ 
+Monsieur Guy Y... de nationalité française demeurant ... 
+ 
+ 
+Représenté par la SCP LABORY-MOUSSIE & ANDOUARD, avoués à la Cour assisté de Maître DECLERCQ loco de Maître NAZERI avocat au barreau de BORDEAUX 
+ 
+ 
+PAVILLON DE LA MUTUALITE, intervenant volontairement aux lieu et place de la CLINIQUE MUTUALISTE, pris en la personne de son représentant légal domicilié en cette qualité au siège social 46, rue du Docteur Schweitzer 33600 PESSAC 
+ 
+ 
+Représenté par la SCP ARSENE-HENRY ET LANCON, avoués à la Cour assisté de Maître Eric FOREST loco de Maître BOERNER avocat au barreau de BORDEAUX 
+ 
+ 
+La Caisse Primaire d’Assurance Maladie de la Gironde, prise en la personne de son représentant légal domicilié en cette qualité au siège social place de l’Europe 33085 BORDEAUX CEDEX 
+ 
+ 
+Représentée par la SCP Luc BOYREAU & Raphael MONROUX, avoués à la Cour assistée de Maître ABDI loco de Maître MOUNIER avocat au barreau de BORDEAUX 
+ 
+ 
+Compagnie d’assurances M. A. C. S. F., prise en la personne de son représentant légal domicilié en cette qualité au siège social 11, rue Brunel 75856 PARIS CEDEX 17 
+ 
+ 
+Représentée par la SCP LABORY-MOUSSIE & ANDOUARD, avoués à la Cour assistée de Maître DECLERCQ loco de Maître NAZERI avocat au barreau de BORDEAUX 
+ 
+ 
+ 
+COMPOSITION DE LA COUR : 
+ 
+ 
+ 
+En application des dispositions des articles 786 et 910 du Code de Procédure Civile, l’affaire a été débattue le 12 juin 2008 en audience publique, les avocats ne s’y étant pas opposés, devant Monsieur Robert MIORI, Président chargé du rapport, 
+ 
+ 
+Ce magistrat a rendu compte des plaidoiries dans le délibéré de la Cour, composée de : 
+ 
+ 
+Monsieur Robert MIORI, Président, 
+ 
+Madame Edith O’YL, Conseiller, 
+ 
+Madame Danièle BOWIE, Conseiller, 
+ 
+ 
+Greffier lors des débats : Monsieur Hervé GOUDOT 
+ 
+ 
+ARRÊT :
+ 
+ 
+- contradictoire
+ 
+ 
+-prononcé publiquement par mise à disposition de l’arrêt au greffe de la Cour, les parties en ayant été préalablement avisées dans les conditions prévues à l’article 450 alinéa 2 du Code de Procédure Civile. 
+ 
+ 
+Vu le jugement du Tribunal de Grande Instance de BORDEAUX en date du 10 mai 2006. 
+ 
+ 
+Vu la déclaration d’appel de Madame X.... 
+ 
+ 
+Vu les conclusions de Madame X... du 20 mai 2008. 
+ 
+ 
+Vu les conclusions de Monsieur Y... et de la Mutuelle Assurance du Corps de Santé Français (MACSF) déposées le 11 janvier 2008. 
+ 
+ 
+Vu les conclusions du Pavillon de la Mutualité venant aux droits de la clinique de Pessac déposées le 8 novembre 2007. 
+ 
+ 
+Vu les conclusions de la Caisse Primaire d’Assurance Maladie de la Gironde (la CPAM) déposées le 12 octobre 2007. 
+ 
+ 
+Vu l’ordonnance de clôture du 29 mai 2008. 
+ 
+ 
+ 
+OBJET DU LITIGE : 
+ 
+ 
+ 
+Le 18 janvier 2001, le docteur Y... a pratiqué une intervention chirurgicale dans les locaux de la Clinique Mutualiste de Pessac au niveau du genou gauche de Madame X.... 
+ 
+ 
+Dans les jours qui ont suivi Madame X... a été victime d’une infection provenant d’un staphylocoque doré. Cette infection a entraîné une prolongation des suites opératoires nécessitant notamment une antibiothérapie pendant 9 mois, un pneumothorax est apparu le 30 janvier 2001, et après consolidation survenue le 17 mai 2002, une aggravation de l’instabilité fonctionnelle du genou gauche 
+ 
+ 
+Saisi par Madame X... d’une demande de désignation d’un expert médical, le Juge des Référés du Tribunal de Grande Instance de BORDEAUX, a par ordonnance en date du 8 septembre 2003, fait droit à sa demande et désigné le docteur G...pour procéder à l’expertise sollicitée. 
+ 
+ 
+Dans son rapport du 22 décembre 2003, le docteur G...précise :
+ 
+ 
+- que Madame X... a été victime d’une infection nosocomiale contractée lors de son séjour à la clinique mutualiste de Pessac et que la patiente n’était pas porteuse d’un foyer infectieux avant son intervention.
+ 
+ 
+- que si Madame X... a été informée des suites opératoires classiques elle n’a pas été informée des risques de séquelles même exceptionnelles liées à cette intervention, et qu’en dehors d’une nette insuffisance concernant le consentement éclairé, il n’y a pas de faute médicale
+ 
+ 
+-que les préjudices subis sont les suivants :
+ 
+ 
+- Incapacité temporaire totale de 2 mois et demi
+ 
+ 
+-Incapacité temporaire partielle à 50 % de 2 mois
+ 
+ 
+-date de consolidation 17 mai 2002
+ 
+ 
+- déficit Fonctionnel physiologique 15 % dont 10 % imputable à l’état préexistant
+ 
+ 
+ 
+-l’aggravation de l’instabilité de son genou augmente sa gêne professionnelle
+ 
+ 
+-souffrances endurées : 5 / 7
+ 
+ 
+- préjudice esthétique 0, 5 / 7
+ 
+ 
+- existence d’un préjudice d’agrément 
+ 
+ 
+ 
+Après dépôt du rapport d’expertise Madame X... a fait assigner Monsieur Y..., la Clinique Mutualiste de Pessac aux droits de laquelle se trouve le Pavillon de la Mutualité, la MASF, et la CPAM de la Gironde devant le Tribunal de Grande Instance de BORDEAUX, afin d’obtenir la réparation de son préjudice. 
+ 
+ 
+ 
+Par jugement en date du 10 mai 2006, le tribunal a : 
+ 
+ 
+1o / Dit que le défaut d’information du Docteur Y... quant aux risques 
+ 
+d’infection nosocomiale n’a pas eu d’incidence quant à l’acceptation de l’intervention chirurgicale par Madame Nathalie X.... 
+ 
+ 
+Déclaré la Clinique Mutualiste Pavillon de la Mutualité et le Docteur Y... responsables sur le fondement de l’article 1147 du code civil pour manquement à leur obligation de sécurité de résultat, de l’infection nosocomiale contractée par Madame Nathalie X.... 
+ 
+ 
+2o / Condamné in solidum le Docteur Y... et la Clinique Mutualiste Pavillon de la Mutualité à payer à Madame Nathalie X....
+ 
+ 
+- la somme de 41 235, 92 euros à titre de dommages et intérêts avec intérêts au taux légal à compter du jugement ;
+ 
+ 
+- la somme de 1 200 euros sur le fondement de l’article 700 du Code de Procédure Civile. 
+ 
+ 
+Rejeté les autres demandes présentées par Madame Nathalie X.... 
+ 
+ 
+Constaté que le recours de la Caisse Primaire d’Assurance Maladie de la Gironde 
+ 
+est exclu du protocole d’Accord Organismes Sociaux et Entreprises d’Assurances du 24 mai 1983. 
+ 
+ 
+3o / Condamné in solidum la Clinique Mutualiste Pavillon de la Mutualité et le Docteur Y... à payer à la Caisse Primaire d’Assurance Maladie de la Gironde :
+ 
+ 
+- la somme de 30 267, 09 euros au titre des prestations en nature ;
+ 
+ 
+- la somme de 3 335, 85 euros au titre des prestations en espèces ;
+ 
+ 
+- les frais futurs liés au changement annuel de grenouillère au fur et à mesure qu’ils seront exposés à moins qu’ils ne préfèrent se libérer immédiatement par le paiement du capital de 2 335, 05 euros ;
+ 
+ 
+- la somme de 160 euros sur le fondement de l’article 700 du Code de Procédure Civile. 
+ 
+ 
+Donné acte à la Caisse Primaire d’Assurance Maladie de la Gironde de ce qu’elle se réserve le droit de réclamer le montant de toute nouvelle prestation qu’elle pourrait être amenée à verser pour le compte de son assurée. 
+ 
+ 
+Rejeté les demandes de la Caisse Primaire d’Assurance Maladie de la Gironde 
+ 
+pour le surplus. 
+ 
+ 
+Ordonné l’exécution provisoire du présent jugement à hauteur de la moitié des condamnations prononcées. 
+ 
+ 
+Condamné in solidum la Clinique Mutualiste Pavillon de la Mutualité et le Docteur Y... aux entiers dépens. 
+ 
+ 
+ 
+Madame X... a relevé appel de ce jugement. Elle en poursuit l’infirmation sauf en ce qu’il a retenu la responsabilité de la Clinique Mutualiste Pavillon de la Mutualité et du Docteur Y... pour manquement à leur obligation de sécurité de résultat et en ce qu’il a condamné les intéressés au paiement des sommes suivantes :
+ 
+ 
+-1 200 euros au titre du déficit fonctionnel permanent
+ 
+ 
+-7 000 euros au titre du déficit fonctionnel permanent
+ 
+ 
+-25 000 euros au titre des souffrances endurées
+ 
+ 
+-750 euros au titre du préjudice esthétique. 
+ 
+ 
+ 
+Elle demande que Monsieur Y... et la Clinique Mutualiste soient en plus des sommes sus mentionnées solidairement condamnés à lui verser :
+ 
+ 
+ 
+-1 663, 14 euros au titre de la perte de gains professionnels actuels
+ 
+ 
+-50 000 euros au titre de l’incidence professionnelle
+ 
+ 
+-15 000 euros au titre du préjudice d’agrément
+ 
+ 
+-2 244 euros au titre des frais d’assistance d’expertise
+ 
+ 
+-5 000 euros sur le fondement de l’article 700 du Code de Procédure Civile. 
+ 
+ 
+ 
+Elle réclame en outre que les intéressés soient, sous la même solidarité, condamnés au paiement des frais futurs relatifs au changement de genouillère et semelles et aux prochaines consultations podologiques. 
+ 
+ 
+ 
+Monsieur Y... et la MACSF concluent à titre principal à l’infirmation de la décision attaquée et à la mise hors de cause de Monsieur Y.... 
+ 
+ 
+A titre subsidiaire ils réclament que le jugement soit confirmé en ce qu’il a rejeté les demandes de Madame X... formées au titre du retentissement professionnel et des frais futurs que soient rejetées les demandes de l’intéressée formées au titre de l’ITT, de l’IPP, du préjudice d’agrément et des frais d’assistance à expertise, et que les autres indemnités soient réduites à de plus justes proportions. 
+ 
+ 
+Ils sollicitent enfin que Madame X... soit condamnée à leur verser 2 000 euros en application des dispositions de l’article 700 du Code de Procédure Civile. 
+ 
+ 
+ 
+Le Pavillon de la Mutualité sollicite :
+ 
+ 
+- à titre principal que le jugement attaqué soit confirmé et que Madame X... soit condamnée à lui verser une indemnité de 1 000 euros au titre de l’article 700 du Code de Procédure Civile ;
+ 
+ 
+- à titre subsidiaire que les prétentions de Madame X... soient réduites à de plus justes proportions qu’il lui soit donné acte de ce qu’il propose de verser 15 563 euros au titre des frais de formation sous réserve de présentation de justificatifs et que la demanderesse soit déboutée du surplus de ses demandes. 
+ 
+ 
+ 
+La Caisse Primaire d’Assurance Maladie de la Gironde conclut à la confirmation du jugement attaqué sauf à actualiser les sommes dues pour les porter à 40 358, 51 euros au titre des prestations versées et à 2 275, 82 euros en ce qui concerne les frais futurs. 
+ 
+ 
+Elle réclame que lui soit attribuée une indemnité de 300 euros sur le fondement de l’article 700 du Code de Procédure Civile. 
+ 
+ 
+ 
+Motifs de la décision : 
+ 
+ 
+ 
+Sur la responsabilité résultant de l’infection nosocomiale : 
+ 
+ 
+ 
+Le tribunal a exactement considéré que l’intervention chirurgicale ayant eu lieu le 18 janvier 2001, les dispositions de la loi du 30 décembre 2002 dont il résulte que la responsabilité des médecins en cas d’infection nosocomiale ne peut être retenue qu’en cas de faute prouvée à leur encontre n’étaient pas applicables en l’espèce. 
+ 
+ 
+Il s’avère en effet que l’article 3 du texte susmentionné précise expressément que les dispositions de cette loi ne s’appliquent qu’aux infections nosocomiales concernant des soins réalisés à compter du 5 septembre 2001, à moins qu’une décision de justice irrévocable n’ait été prononcée, ce qui n’est par définition pas le cas dans la présente procédure toujours en cours. 
+ 
+ 
+ 
+C’est également à bon droit que le tribunal a retenu que le docteur Y... étant dès lors tenu à une obligation de sécurité de résultat devait indemniser Madame X..., l’infection étant survenue à la suite de l’intervention qu’il a pratiquée. 
+ 
+ 
+C’est dans ces conditions vainement que Monsieur Y... fait valoir que le législateur a condamné la jurisprudence antérieure à la loi du 4 mars 2002, ce texte prévoyant expressément qu’il ne s’appliquait pas à des interventions pratiquées avant le 5 septembre 2001. 
+ 
+ 
+Monsieur Y... ne peut non plus soutenir qu’une faute prouvée devrait être établie à son encontre alors que compte tenu de la date à laquelle l’opération au eu lieu il était tenu à une obligation de sécurité de résultat. 
+ 
+ 
+La loi nouvelle ne pouvant s’appliquer que selon les modalités qu’elle prévoit à la date qu’elle fixe, Monsieur Y... et son assureur, sont enfin mal fondés à invoquer les situations différentes faites aux médecins selon la date où le dommage 
+ 
+est intervenu. 
+ 
+ 
+Tenue à une obligation identique le Pavillon de la Mutualité, qui n’établit pas qu’une cause étrangère serait à l’origine de l’infection, est même en l’absence de faute démontrée à son encontre, tenu de réparer le préjudice qui est résulté de l’infection nosocomiale survenue pendant les soins dispensés dans son établissement. 
+ 
+ 
+La responsabilité de Monsieur Y... et celle du Pavillon de la Mutualité seront donc retenues sur ce fondement et le jugement attaqué confirmé de ce chef. 
+ 
+ 
+ 
+Sur la responsabilité résultant d’un manquement au devoir d’information : 
+ 
+ 
+ 
+Dans son rapport l’expert considère que Madame X... n’a pas été informée des risques de séquelles même exceptionnelles liées à l’intervention. 
+ 
+ 
+Madame X... soutient que le manquement de Monsieur Y... à son devoir d’information l’a privée de la possibilité d’exprimer un refus éclairé de l’acte. 
+ 
+ 
+Hormis les cas d’urgence d’impossibilité ou de refus du patient d’être informé, un médecin est tenu de lui donner une information loyale, claire et appropriée sur les risques graves afférents aux investigations et soins proposés. 
+ 
+ 
+Il n’est pas dispensé de cette obligation par le seul fait que ces risques ne se réalisent qu’exceptionnellement. 
+ 
+ 
+En l’espèce aucun élément ne permet avec certitude de considérer qu’informée des risques encourus concernant les infections nosocomiales, Madame X... aurait malgré tout accepté celui de subir l’intervention. 
+ 
+ 
+La responsabilité du docteur Y... sera donc retenue de ce chef également. 
+ 
+ 
+Le jugement attaqué sera infirmé sur ce point. 
+ 
+ 
+ 
+Sur l’indemnisation du préjudice : 
+ 
+ 
+ 
+I Les Préjudices Patrimoniaux : 
+ 
+ 
+ 
+A Les Préjudices Patrimoniaux Temporaires : 
+ 
+ 
+ 
+1 Les Dépenses de Santé Actuelles 
+ 
+ 
+ 
+La Caisse Primaire d’Assurance Maladie de la Gironde sollicite à ce titre une somme de 30 693, 34 euros représentant le montant des prestations qu’elle a du régler. 
+ 
+ 
+En l’absence de toute contestation il sera fait droit à sa demande. 
+ 
+ 
+2 Les Préjudices Professionnels Temporaires : 
+ 
+ 
+a / perte de gains professionnels actuels 
+ 
+ 
+ 
+Madame X... maintient que son salaire net à prendre en considération est de 1 428, 29 euros par mois et que pour les 2 mois et demi d’incapacité totale retenus par l’expert et les 2 mois d’incapacité à 50 %, il lui revient la somme de 4 998, 99 euros dont doit être déduite la créance de la Caisse Primaire d’Assurance Maladie de la Gironde. 
+ 
+ 
+Monsieur Y... et la MACSF qui l’assure, soutiennent que faute par Madame X... de prouver sa perte de revenu aucune somme ne peut lui être allouée à ce titre. Ils ajoutent qu’en toute hypothèse seule la somme de 1 206, 22 euros figurant sur le bulletin de salaire de janvier 2001 doit être retenue. 
+ 
+ 
+Le Pavillon de la Mutualité demande que ne soit retenu qu’un salaire de 1 250 euros par mois. 
+ 
+ 
+La Caisse Primaire d’Assurance Maladie de la Gironde réclame une somme de 9 665, 17 euros au titre des pertes de gains professionnels actuels. 
+ 
+ 
+Seules les indemnités versées pendant les périodes d’incapacité mentionnées par l’expert et dont la durée n’est pas contestée pouvant être prise en considération, il convient de limiter à 2 mois et demi à temps complet, et à 2 mois à 50 % soit à l’équivalent de 3 mois et demi soit 105 jours la période indemnisable. 
+ 
+ 
+La créance de la caisse à ce titre sera donc limitée sur la base d’un versement effectué de 30, 85 euros par jour, à la somme de 3 239, 25 euros. 
+ 
+ 
+Le rapport d’expertise qui fait état d’une incapacité temporaire à temps plein de 3, 5 mois, et les documents produits par la Caisse Primaire d’Assurance Maladie de la Gironde qui révèlent qu’elle a partiellement pris en charge la rémunération de Madame X... établissent qu’elle n’a pu travailler pendant cette période par suite de l’infection ce qui justifie le bien fondé, en son principe de sa demande. 
+ 
+ 
+La moyenne des 3 derniers bulletins de salaire concernant les mois d’octobre à décembre 2000 fait ressortir que Madame X... percevait un salaire net de 1 206, 22 + 1 236, 42 + 1 254, 76 = 3 697, 40 : 3 = 1 232, 46 euros. 
+ 
+ 
+Avant déduction des indemnités journalières sa perte de salaire pour un total de 3 mois et demi d’incapacité était donc de 4 313, 63 euros. 
+ 
+ 
+Pour cette période qui correspond à 105 jours la Caisse Primaire d’Assurance Maladie de la Gironde lui a versé 30, 85 X 105 = 3 239, 25 euros. 
+ 
+ 
+La perte réelle est donc de 4 313, 63-3 239, 25 = 1 074, 38 euros. 
+ 
+ 
+La perte de gains professionnels actuels sera donc fixée ainsi qu’il suit. 
+ 
+ 
+Part revenant à la CPAM 3 239, 25 
+ 
+Part revenant à Madame X... 1 074, 38 
+ 
+ 
+Total 4 313, 63 
+ 
+ 
+ 
+b Sur les frais divers : 
+ 
+ 
+ 
+Madame X... sollicite que lui soit attribuée une indemnité de 2 244 euros au titre des frais qu’elle a du exposer pour se faire assister à l’expertise. 
+ 
+ 
+Cette demande est fondée en son principe, la victime ayant le droit d’obtenir le concours d’un médecin pour faire valoir ses droits. 
+ 
+ 
+C’est cependant de manière exacte que le tribunal a considéré que la somme allouée à ce titre à la victime ne pouvait dépasser celle de 500 euros accordée à l’expert lequel a du de surcroît rédiger un rapport d’expertise. 
+ 
+ 
+Aucune somme supplémentaire ne lui sera en conséquence allouée de ce chef. 
+ 
+ 
+ 
+B Les Préjudices Patrimoniaux Permanents : 
+ 
+ 
+ 
+1 Les Dépenses de Santé Futures : 
+ 
+ 
+ 
+La Caisse Primaire d’Assurance Maladie de la Gironde réclame le paiement des frais futurs au fur et à mesure ou ils seront exposés à moins que les responsables ne préfèrent se libérer par le versement immédiat d’un capital de 2 275, 82 euros. 
+ 
+ 
+En l’absence de toute contestation il sera fait droit à sa demande. 
+ 
+ 
+Les frais futurs dont la Caisse Primaire d’Assurance Maladie de la Gironde sollicite la prise en charge sont constitués par le coût d’une genouillère. Il n’est aucunement établi qu’une somme quelconque restera à ce titre à la charge de Madame X.... 
+ 
+ 
+La demande qu’elle formule de ce chef sera donc rejetée. 
+ 
+ 
+A aucun moment l’expert ne relève la nécessité pour Madame X... de recourir à un podologue. 
+ 
+ 
+La demande de prise en charge qu’elle présente tant au titre des frais déjà exposés de ce chef que des frais futurs sera en conséquence rejetée. 
+ 
+ 
+Il en va de même pour les semelles orthopédiques pour lesquelles l’expert n’a formulé aucune recommandation. 
+ 
+ 
+Seule la créance de la Caisse Primaire d’Assurance Maladie de la Gironde sera donc retenue au titre des dépenses de santé futures. 
+ 
+ 
+ 
+ 
+2 Les Préjudices Professionnels Définitifs : 
+ 
+ 
+ 
+Madame X... maintient que l’infection nosocomiale a eu une incidence professionnelle puisqu’elle exerçait l’activité de monitrice d’atelier dans un CAT et qu’elle a du se reconvertir pour exercer l’activité d’éducatrice spécialisée au Centre Hospitalier de Cadillac. 
+ 
+ 
+Elle ajoute qu’elle est reconnue travailleur handicapé à 60 % avec carte de station debout pénible. 
+ 
+ 
+Elle réclame à ce titre une indemnité de 50 000 euros. 
+ 
+ 
+Dans son rapport l’expert note en pages 17 et 18 que Madame X... exerce une activité particulièrement physique puisqu’elle travaille dans les vignes, qu’elle a des difficultés à assumer ce travail du fait de l’instabilité du genou gauche, que cette instabilité s’est aggravée à la suite de l’intervention et qu’elle présente une augmentation de la gêne professionnelle. 
+ 
+ 
+Ces éléments ne permettent pas de retenir que la reconversion professionnelle à laquelle a procédé Madame X... résulte de l’infection nosocomiale, puisque elle avait déjà des difficultés à exercer son travail avant l’intervention chirurgicale en raison de troubles antérieurs à celle-ci représentant une incapacité de 10 % sur les 15 % qui subsistent. 
+ 
+ 
+Madame X... ne soutient en outre pas et ne démontre à fortiori pas, avoir subi une perte de salaire à la suite de sa reconversion. 
+ 
+ 
+Elle ne réclame pas enfin le remboursement de frais de reconversion ou de formation qui seraient restés à sa charge et ne justifie en toute hypothèse pas en avoir effectivement payé le montant en sorte que la condition fixée par le Pavillon de la Mutualité pour rembourser les frais exposés à ce titre n’est pas remplie. 
+ 
+ 
+Il sera néanmoins donné acte au Pavillon de la Mutualité de ce qu’il propose la prise en charge de la première formation chiffrée à 15 563 euros sur présentation de justificatifs. 
+ 
+ 
+ 
+II Sur Les Préjudices Extrapatrimoniaux : 
+ 
+ 
+ 
+A Les Préjudices Extrapatrimoniaux Temporaires : 
+ 
+ 
+ 
+Seule l’indemnisation du Déficit Fonctionnel Temporaire est réclamée. 
+ 
+ 
+Celui-ci indemnise l’aspect non économique de l’incapacité temporaire. 
+ 
+ 
+La somme de 2 100 euros allouée à ce titre par le tribunal calculée sur la base de 600 euros par mois est justifiée. Il convient de le retenir. 
+ 
+ 
+ 
+B Les Préjudices Extrapatrimoniaux Permanents : 
+ 
+ 
+ 
+1 Le Déficit Fonctionnel Permanent 
+ 
+ 
+Il n’y a pas lieu de majorer la valeur du point d’incapacité en fonction de l’incidence professionnelle, qui en l’espèce n’est pas établie, cette pratique n’étant pas compatible avec la loi du 21 décembre 2006 qui institue un recours poste par poste et qui implique par conséquent une indemnisation séparée à ce titre. 
+ 
+ 
+Compte tenu de l’âge de la victime qui est née en 1966, et des constatations médicales qui font ressortir un taux d’incapacité imputable à l’infection de 5 %, il lui sera alloué une indemnité de 4 500 euros. 
+ 
+ 
+ 
+2 Sur les souffrances endurées : 
+ 
+ 
+ 
+En considération des constatations médicales qui font ressortir un taux de souffrance de 5 / 7 la somme de 25 000 euros accordée par le tribunal est justifiée. Elle sera maintenue. 
+ 
+ 
+ 
+3 Préjudice esthétique : 
+ 
+ 
+ 
+Le taux de 0, 5 / 7 retenu par l’expert justifie le versement de la somme de 750 euros prévue par les premiers juges. 
+ 
+ 
+ 
+4 Préjudice d’agrément : 
+ 
+ 
+ 
+Avant l’intervention chirurgicale Madame X... souffrait déjà d’une instabilité du genou gauche en considération de laquelle elle a demandé à être opérée. L’expert précise que sur une incapacité de 15 %, 10 % sont imputables à l’état antérieur. 
+ 
+ 
+Il note aussi que l’instabilité du genou gauche est plus importante qu’auparavant et qu’elle ressent des claquements lombaires lors d’exercices de gymnastique peu invalidante mais présente, et des sensations de blocage de la hanche. 
+ 
+ 
+Il relève aussi que certaines activités sportives ont du être complètement abandonnées (rollers, ski, footing, randonnée en montagne, danse, gymnastique). 
+ 
+ 
+Ces circonstances démontrent l’existence d’un préjudice d’agrément dont l’indemnisation a justement été fixée à 5 000 euros par le tribunal. Cette indemnisation sera dès lors retenue. 
+ 
+ 
+ 
+Récapitulatif 
+ 
+ 
+ 
+I Préjudices Patrimoniaux : 
+ 
+ 
+A Préjudices Patrimoniaux temporaires : 
+ 
+ 
+1 Dépenses de santé actuelle 
+ 
+ 
+Part de la CPAM 30 693, 34 
+ 
+Part de Madame X... néant 
+ 
+ 
+Total 30 693, 34 
+ 
+ 
+2 Préjudices Professionnels Temporaires : 
+ 
+ 
+a / Pertes de gains professionnels actuels 
+ 
+ 
+Part de la CPAM 3 239, 25 
+ 
+Part de Madame X... 1 074 ; 38 
+ 
+ 
+Total 4 313, 63 
+ 
+ 
+ 
+ 
+b / frais divers 
+ 
+ 
+Part de Madame X... 500 
+ 
+ 
+Total 
+ 
+ 
+Part de la CPAM 33 932, 59 
+ 
+Part de Madame X... 1 574, 38 
+ 
+ 
+ 
+ 
+B Les Préjudices Patrimoniaux Permanents : 
+ 
+ 
+1 Dépenses de santé futures 
+ 
+Part de la CPAM 2 275, 82 
+ 
+Part de Madame X... néant 
+ 
+ 
+ 
+2 Préjudice Professionnel définitif : 
+ 
+ 
+ 
+Incidence professionnelle néant 
+ 
+ 
+ 
+II Préjudices Extrapatrimoniaux : 
+ 
+ 
+ 
+A Déficit extrapatrimonial temporaire 2 100 
+ 
+ 
+ 
+B Déficit Extrapatrimonial permanent 
+ 
+ 
+ 
+1 Déficit Fonctionnel Permanent 4 500 
+ 
+ 
+ 
+2 Souffrances endurées 25 000 
+ 
+ 
+ 
+3 Préjudice esthétique 750 
+ 
+ 
+ 
+4 Préjudice d’agrément 5 000 
+ 
+ 
+ 
+Total 37 350 
+ 
+ 
+Le total revenant à Madame X... s’élève donc à 1 574, 38 + 37 350 = 38 924, 38 euros. 
+ 
+ 
+L’équité ne commande pas, en cause d’appel de faire application des dispositions de l’article 700 du Code de Procédure Civile au profit de l’une quelconque des parties. 
+ 
+ 
+En cause d’appel Madame X..., Monsieur Y... et son assureur 
+ 
+succombent chacun sur certains points. 
+ 
+ 
+Il y a lieu en conséquence de dire qu’ils supporteront chacun pour moitié la charge des dépens d’appel. 
+ 
+ 
+Les dépens de première instance demeureront à la charge de Monsieur Y... et du Pavillon de la Mutualité. 
+ 
+ 
+ 
+Par ces motifs : 
+ 
+ 
+ 
+1 Sur la responsabilité : 
+ 
+ 
+ 
+Confirme le jugement attaqué en ce qu’il a retenu la responsabilité du docteur Y... et du Pavillon de la Mutualité sur le fondement de l’article 1147 du code civil pour manquement à leur obligation de sécurité de résultat. 
+ 
+ 
+L’infirme en ce qu’il n’a pas retenu le défaut d’information du docteur Y... et statuant à nouveau de ce chef dit que le docteur Y... a manqué à son devoir d’information et qu’il est également tenu de ce chef d’indemniser le préjudice de Madame X.... 
+ 
+ 
+ 
+2 Sur l’indemnisation du préjudice : 
+ 
+ 
+Confirme le jugement attaqué sauf en ce qu’il a :
+ 
+ 
+- condamné in solidum le docteur Y... et le Pavillon de la Mutualité à payer : 
+ 
+ 
+a / à Madame X... la somme de 41 235, 92 euros à titre de dommages et intérêts et statuant à nouveau de ce chef les condamne sous la même solidarité à lui verser la somme de 38 924, 38 euros laquelle portera intérêts au taux légal à compter du jugement attaqué. 
+ 
+ 
+b / à la Caisse Primaire d’Assurance Maladie de la Gironde la somme de 30 267, 09 euros au titre des prestations en nature, la somme de 3 335, 85 euros au titre des prestations en espèces et la somme de 2 335, 05 euros au titre des frais futurs et statuant à nouveau de ces chefs. 
+ 
+ 
+Condamne in solidum les intéressés payer à la Caisse Primaire d’Assurance Maladie :
+ 
+ 
+- la somme de 30 693, 34 euros au titre des prestations en nature et celle de 3 239, 25 euros au titre des prestations en espèces
+ 
+ 
+-les frais futurs au fur et à mesure qu’ils seront exposés à moins qu’ils ne préfèrent se libérer par le versement immédiat d’un capital représentatif soit 2 275, 82 euros. 
+ 
+ 
+Y ajoutant. 
+ 
+ 
+Donne acte au Pavillon de la Mutualité de ce qu’il propose la prise en charge de la première formation chiffrée à 15 563 euros sur présentation de justificatifs. 
+ 
+ 
+Dit que les dépens de première instance demeureront à la charge de Monsieur Y... et du Pavillon de la Mutualité. 
+ 
+ 
+Condamne Monsieur Y... et son assureur la MACSF d’une part et Madame X... d’autre part aux dépens d’appel qui seront distraits conformément aux dispositions de l’article 699 du code de procédure civile et dit qu’ils seront supportés par moitié par chacun d’entre eux. 
+ 
+ 
+Le présent arrêt a été signé par Monsieur Robert MIORI, Président, et par Monsieur Hervé GOUDOT, Greffier, auquel la minute de la décision a été remise par le magistrat signataire. 
+ 
+ 
+ 
+Le Greffier, Le Président, 
+ 
+ 
+ 
+ 
+ 
+Hervé GOUDOT Robert MIORI
+ 
+ 
+ 
+ 
+ 
+Décision attaquée : tribunal de grande instance de Bordeaux , du 10 mai 2006
+ 
+ 
+ 
+ 
