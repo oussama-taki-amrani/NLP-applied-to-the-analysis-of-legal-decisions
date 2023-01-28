@@ -5,6 +5,7 @@ import csv
 train_folder_path = "train_folder_predilex/train_folder/txt_files/"
 train_files_ids_path = "train_folder_predilex/train_folder/x_train_ids.csv"
 
+stopwords = str = open('stop_words_french.txt', 'r').read().split()
 
 def month_to_num(month):
     if month[0:3]=="jan":
@@ -73,9 +74,12 @@ def file_info(filename):
                 line = re.sub(r'[^\w\s]', ' ', line) # remove all punctuation and replace with space
                 line = re.sub("\d+", "", line)       # remove all numerical characters
                 line = re.sub(months,"",line)        # remove all months names
-
-                total_sentences[0].append(line.split())
-                total_sentences[1].append(temp)
+                line = re.sub(r'\b[a-zA-Z]{1,2}\b'," ", line) # remove all words that have a length equal to 1 or less
+                line = re.sub(r"\b(%s)\b" % "|".join(stopwords), " ", line) # remove all stopwords in the list stopwords
+                
+                if(len(line.split())!=0):   # There are still words in the sentence after cleaning it
+                    total_sentences[0].append(line.split())
+                    total_sentences[1].append(temp)
     return total_sentences    
     
     
@@ -115,19 +119,19 @@ date_f = "(" + date_f1 + "|" + date_f2 + ")"
 
 # ----------------------- Testing the output for all files --------------------------------
 
-#with open(train_files_ids_path, 'r') as file:
-#    csvreader = csv.reader(file)
-#    next(csvreader)                 # skip the first row [ID, filename]
-#    
-#    for row in csvreader:
-#        print('='*42,end=" ")
-#        print(row[1],end=" ")
-#        print('='*42)
-#        file_sentences=file_info(row[1])
-#        
-#        for i in range(0,len(file_sentences[0])):
-#            print(file_sentences[0][i] , "\n    DATES :", file_sentences[1][i],end="\n\n")
-#        print('='*100)
+with open(train_files_ids_path, 'r') as file:
+    csvreader = csv.reader(file)
+    next(csvreader)                 # skip the first row [ID, filename]
+    
+    for row in csvreader:
+        print('='*42,end=" ")
+        print(row[1],end=" ")
+        print('='*42)
+        file_sentences=file_info(row[1])
+        
+        for i in range(0,len(file_sentences[0])):
+            print(file_sentences[0][i] , "\n    DATES :", file_sentences[1][i],end="\n\n")
+        print('='*100)
 
 
 # ---------------------- Testing with this file ------------------------------------------------------
