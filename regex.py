@@ -60,13 +60,28 @@ def file_info(filename):
             dates2 = re.findall(date_f2,line) # find the dates in the second format in the line
             temp = []
             if(len(dates)!=0):  # there is at least one date in the line in the first format
+                for i in range(0,len(dates)):
+                    list_tmp=list(dates[i])
+                    if(list_tmp[0]=="1er"):      # if the day is "1er" we assign 1 to it
+                        list_tmp[0]=1
+                    else:
+                        list_tmp[0]=int(dates[i][0])
+                    list_tmp[1]=int(dates[i][1])
+                    list_tmp[2]=int(dates[i][2].replace(" ", ""))
+                    dates[i]=tuple(list_tmp)
+                    
                 temp.extend(dates)
             if(len(dates2)!=0): # there is at least one date in the line in the second format
                 for i in range(0,len(dates2)): # in the loop we change the months from str to int
                     list_tmp=list(dates2[i])
-                    list_tmp[1]=month_to_num(dates2[i][1])
                     if(list_tmp[0]=="1er"):      # if the day is "1er" we assign 1 to it
                         list_tmp[0]=1
+                    else:
+                        list_tmp[0]=int(dates2[i][0])
+                        
+                    list_tmp[1]=int(month_to_num(dates2[i][1]))
+                    list_tmp[2]=int(dates2[i][2].replace(" ", ""))
+                    
                     dates2[i]=tuple(list_tmp)
                 temp.extend(dates2)
             if(len(temp)!=0): # we found a least one date in the sentence
