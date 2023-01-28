@@ -2,6 +2,7 @@ import re
 from unidecode import unidecode
 import csv
 
+
 train_folder_path = "train_folder_predilex/train_folder/txt_files/"
 train_files_ids_path = "train_folder_predilex/train_folder/x_train_ids.csv"
 
@@ -48,7 +49,7 @@ def file_info(filename):
     """
     file_path = train_folder_path + filename
     
-    f = open(file_path, "r")
+    f = open(file_path, "r", encoding="utf8")
 
     total_sentences=[[],[]]
 
@@ -134,19 +135,19 @@ date_f = "(" + date_f1 + "|" + date_f2 + ")"
 
 # ----------------------- Testing the output for all files --------------------------------
 
-with open(train_files_ids_path, 'r') as file:
+with open(train_files_ids_path, 'r', encoding="utf8") as file:
     csvreader = csv.reader(file)
     next(csvreader)                 # skip the first row [ID, filename]
     
     for row in csvreader:
-        print('='*42,end=" ")
-        print(row[1],end=" ")
-        print('='*42)
+        # print('='*42,end=" ")
+        # print(row[1],end=" ")
+        # print('='*42)
         file_sentences=file_info(row[1])
         
-        for i in range(0,len(file_sentences[0])):
-            print(file_sentences[0][i] , "\n    DATES :", file_sentences[1][i],end="\n\n")
-        print('='*100)
+        # for i in range(0,len(file_sentences[0])):
+        # #     print(file_sentences[0][i] , "\n    DATES :", file_sentences[1][i],end="\n\n")
+        # # print('='*100)
 
 
 # ---------------------- Testing with this file ------------------------------------------------------
@@ -161,5 +162,27 @@ for i in range(0,len(total_sentences[0])):
 # ---------------------------------------------------------------------------------------------------
 
 
+# Loading the Y_train file
+def get_labels():
+    with open("Y_train_predilex.csv", 'r') as file:
+        y_data_rawtext = file.read()
+    dates = re.split("\n\d+,.*?,",y_data_rawtext)
+    dates.pop(0) #discard header
+    labels =[]
+    for i in range(len(dates)):
+        accident,consolidation = dates[i].split(",")
+        if len(accident)>4:
+            yyyy,mm,dd = accident.split("-")
+            acc = (int(dd),int(mm),int(yyyy))
+        else:
+            acc = ()
+        if len(consolidation) > 4:
+            yyyy, mm, dd = consolidation.split("-")
+            cons = (int(dd), int(mm), int(yyyy))
+        else:
+            cons = ()
+        labels.append([acc,cons])
+    return labels
 
-
+labels = get_labels()
+print(labels)
