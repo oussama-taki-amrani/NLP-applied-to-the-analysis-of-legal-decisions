@@ -1,7 +1,10 @@
 from Data_frame import df
+import numpy as np
+from sklearn import svm
 
 
 def compute_words_occurence(labelized_sentences):
+
     occurences = [{},{},{}]
     for i in range(len(labelized_sentences)):
         sentence = labelized_sentences['Sentences'][i]
@@ -22,6 +25,7 @@ def scores_from_occurences(occurences,alpha=1):
         scores[2][word] = occurences[2][word] / (1 + alpha*(occurences[0][word] + occurences[1][word]))
     return scores
 
+#Sorting scores
 def get_best_scores(scores,nb=50):
     sorted_scores = [{}, {}, {}]
     sorted_scores[0] =  dict(sorted(scores[0].items(), key=lambda x: x[1],reverse=True))
@@ -34,5 +38,24 @@ def get_best_scores(scores,nb=50):
 occurences = compute_words_occurence(df)
 vec,sorted_scores = get_best_scores(scores_from_occurences(occurences))
 
-# for word in sorted_scores[2]:
-#     print("{:<30}: {:>3}".format(word, sorted_scores[2][word]))
+#Bag of words
+def encode_sentence(sentence,words_vec):
+    x = []
+    for j in range(len(words_vec)):
+        x.append(sentence.count(words_vec[j]))
+    return x
+
+
+# Setting up the training datas
+x_train = np.zeros([len(df),len(vec)])
+y_train = np.zeros(len(df))
+for i in range(len(df)):
+    x_train[i,:] = encode_sentence(df['Sentences'][i],vec)
+    y_train[i] = df['Label'][i]
+
+#Training the SVM
+classifier = svm.SVC(kernel='linear')
+print("Start learning")
+classifier.fit(x_train,y_train)
+
+
