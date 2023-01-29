@@ -1,5 +1,6 @@
 from Data_frame import df
-import numpy as np
+
+
 def compute_words_occurence(labelized_sentences):
     occurences = [{},{},{}]
     for i in range(len(labelized_sentences)):
