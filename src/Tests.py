@@ -19,12 +19,12 @@ def get_dates2(sentences, dates, word_vec, clf):
     if results[acc, 0] > 0:
         date_accident = dates[acc]
     else:
-        date_accident = "n.a."
+        date_accident = ()
     if results[cons, 1] > 0:
         date_consolidation = dates[cons]
     else:
-        date_consolidation = "n.c."
-    return date_accident, date_consolidation
+        date_consolidation = ()
+    return [date_accident, date_consolidation]
 
 
 def get_dates(file_name, word_vec, clf):
@@ -42,9 +42,19 @@ def get_dates(file_name, word_vec, clf):
 
 test_sentences = np.array(df_test['Sentences'])
 # print(get_dates("Agen_400518.txt",vec,classifier))
+
+prec_per_date = 0
+prec_per_doc = 0
 for i in range(len(docs_tests_dates)-1):
     if (len(test_sentences[docs_starts_test[i]:docs_starts_test[i+1]]))==0:continue
     prediction = get_dates2(test_sentences[docs_starts_test[i]:docs_starts_test[i+1]],sent_dates[docs_starts_test[i]:docs_starts_test[i+1]],vec,classifier)
     print("Reelles  :", docs_tests_dates[i+1])
     print("Predites :", prediction)
     print("====================================================")
+    if prediction==docs_tests_dates[i+1]: prec_per_doc+=1
+    if (prediction[0] == docs_tests_dates[i+1][0]) : prec_per_date+=1
+    if (prediction[1] == docs_tests_dates[i+1][1]) : prec_per_date+=1
+prec_per_doc=100*prec_per_doc/(len(docs_tests_dates)-1)
+prec_per_date = 100*prec_per_date/(2*(len(docs_tests_dates)-1))
+print("Precision par document = ",prec_per_doc,"%")
+print("Precision par date = ",prec_per_date,"%")
