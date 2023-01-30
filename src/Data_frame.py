@@ -171,6 +171,7 @@ def labelize_sentences(dates_in_sentence,file_dates,line):
     for i  in range(0,len(dates_in_sentence)):
         
         if len(sub_sentences[i].split()) == 0:
+            pop_indexes.append(i)
             continue
         
         isADate = False
