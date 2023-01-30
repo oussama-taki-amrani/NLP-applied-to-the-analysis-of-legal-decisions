@@ -181,7 +181,7 @@ def labelize_sentences(dates_in_sentence,file_dates,line):
             labels.append(0)
             isADate = True
             
-        if dates_in_sentence[i] == file_dates[1]:
+        if dates_in_sentence[i] == file_dates[1] and isADate==False:
             sentences_labelized.append(sub_sentences[i].split())
             labels.append(1)
             isADate = True
@@ -204,7 +204,7 @@ def labelize_sentences(dates_in_sentence,file_dates,line):
     print("Sentences_labelized",labels,"      :",sentences_labelized,"\n\n")
     """
     
-    return sentences_labelized, labels
+    return sentences_labelized, labels, dates_in_sentence
 
 def file_info(filename,file_dates):
 
@@ -238,11 +238,11 @@ def file_info(filename,file_dates):
             
             if(len(dates_in_sentences)!=0): # we found a least one date in the sentence
                 
-                sentences_labelized, label_of_sentence = labelize_sentences(dates_in_sentences,file_dates,line)
+                sentences_labelized, label_of_sentence,dates_in_sentences = labelize_sentences(dates_in_sentences,file_dates,line)
                 total_sentences.extend(sentences_labelized)
                 labels.extend(label_of_sentence)
                             
-    return total_sentences,labels
+    return total_sentences,labels, dates_in_sentences
 
 
 # ----------------------- Output for all files --------------------------------
@@ -259,7 +259,7 @@ with open(train_files_ids_path, 'r', encoding="utf8") as file:
         print(row[0],end=" ")
         print(row[1],end=" ")
         print('='*42) """
-        file_sentences,file_labels=file_info(row[1],text_dates[int(row[0])]) # row[0] is ID and row[1] is filename
+        file_sentences,file_labels, dates=file_info(row[1],text_dates[int(row[0])]) # row[0] is ID and row[1] is filename
         
         all_sentences.extend(file_sentences)
         all_labels.extend(file_labels)
