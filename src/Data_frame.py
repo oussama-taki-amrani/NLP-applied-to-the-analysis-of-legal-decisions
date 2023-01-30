@@ -3,7 +3,7 @@ from unidecode import unidecode
 import csv
 from enum import Enum
 import pandas as panda
-from dates import months, date_f1, date_f2
+from dates import months, date_f1, date_f2,pattern_f
 
 train_folder_path = "../train_folder_predilex/train_folder/txt_files/"
 train_files_ids_path = "../train_folder_predilex/train_folder/x_train_ids.csv"
@@ -79,7 +79,7 @@ def clean_sentence(str):
     str = re.sub(r'[^\w\s]', ' ', str) # remove all punctuation and replace with space
     str = re.sub("\d+", "", str)       # remove all numerical characters
     str = re.sub(months,"",str)        # remove all months names
-    str = re.sub(r'\b[a-zA-Z]{1,2}\b'," ", str) # remove all words that have a length equal to 1 or less
+    str = re.sub(r'\b[a-zA-Z]{1,2}\b'," ", str) # remove all words that have a length equal to 2 or less
     str = re.sub(r"\b(%s)\b" % "|".join(stopwords), " ", str) # remove all stopwords in the list stopwords
 
     return str
@@ -127,15 +127,23 @@ def transform_dates_to_tuples(dates_format1,dates_format2):
     
     return list_of_dates
 
-def labelize_sentence(dates_in_sentences,file_dates,line):
-    """ This function is used to labelize a sentence according to the
-    date that occured in it.
+def labelize_sentences(dates_in_sentence,file_dates,line):
+    """ This function is used to labelize the sub sentences of the according to the
+    dates that occured in each part of the line.
     
-    If the sentence contains both the date of accident and consolidation
-    then it's duplicated and is given two labels
+    If the line contains more than one date sub sentences are created
+    
+    Example: FIRST_PART_OF_THE_SENTENCE date1 SECOND_PART_OF_THE_SENTENCE date2 THIRD_PART_OF_THE_SENTENCE
+    
+    FIRST_PART_OF_THE_SENTENCE + SECOND_PART_OF_THE_SENTENCE is the first sub sentence and the date that
+    occurred in it is date1
+    
+    SECOND_PART_OF_THE_SENTENCE + THIRD_PART_OF_THE_SENTENCE is the second sub sentence and the date that
+    occurred in it is date2
+    
 
     Args:
-        dates_in_sentences (list): the list of tuples corresponding
+        dates_in_sentence (list): the list of tuples corresponding
         to the dates that occured in the sentence
         
         file_dates (list): list of tuples corresponding the date
@@ -144,25 +152,58 @@ def labelize_sentence(dates_in_sentences,file_dates,line):
         line (string): the sentence
 
     Returns:
-        list: a 2xn list of the sentence and its labels
+        list: a 2xn list of the sub_sentences and their labels
     """
-    sentence_labelized = []
-    labels = []
+    sentences_labelized = []  # the list of sub sentences that the function will return 
+    labels = [] # the corresponding labels of these sub sentences
     isADate = False
-    for date in dates_in_sentences:
-        if date == file_dates[0]:
-            sentence_labelized.append(line.split())
+    sub_sentences = [] # list of sentences where we reassemble the left and right part of the sentence
+    sentence_split_on_date = re.split(pattern_f, line) # a list of sentence split whenever a date is found
+    
+    for i in range(0, len(dates_in_sentence)):
+        left_part = clean_sentence(sentence_split_on_date[i])
+        right_part = clean_sentence(sentence_split_on_date[i+1])
+        sub_sentences.append(left_part+" "+right_part)
+    
+    pop_indexes = []
+    
+                                    
+    for i  in range(0,len(dates_in_sentence)):
+        
+        if len(sub_sentences[i].split()) == 0:
+            continue
+        
+        isADate = False
+        
+        if dates_in_sentence[i] == file_dates[0]:
+            sentences_labelized.append(sub_sentences[i].split())
             labels.append(0)
             isADate = True
-        if date == file_dates[1]:
-            sentence_labelized.append(line.split())
+            
+        if dates_in_sentence[i] == file_dates[1]:
+            sentences_labelized.append(sub_sentences[i].split())
             labels.append(1)
             isADate = True
-    if isADate == False:
-        sentence_labelized.append(line.split())
-        labels.append(2)
+            
+        if isADate == False:
+            sentences_labelized.append(sub_sentences[i].split())
+            labels.append(2)
+        
+    for index in sorted(pop_indexes, reverse=True):
+        del dates_in_sentence[index]
     
-    return sentence_labelized, labels
+    # TODO : Delete this  
+    """ 
+    print("Sentence : ",line,"Sub sentences : ")
+    for i  in range(0,len(dates_in_sentence)):
+        print("     ",end=" ")
+        print("Date : ",dates_in_sentence[i],end = "     ")
+        print(sentences_labelized[i])
+    
+    print("Sentences_labelized",labels,"      :",sentences_labelized,"\n\n")
+    """
+    
+    return sentences_labelized, labels
 
 def file_info(filename,file_dates):
 
@@ -184,7 +225,6 @@ def file_info(filename,file_dates):
     
     labels = []
     total_sentences=[]
-    total_dates = []
     for line in f: # iterate over the lines of the text
         if(f!='\n'): # ignore blank lines
             line = unidecode(line) # remove accents and non-ascii characters
@@ -196,16 +236,12 @@ def file_info(filename,file_dates):
             
             
             if(len(dates_in_sentences)!=0): # we found a least one date in the sentence
-                line = clean_sentence(line)
-                if(len(line.split())!=0):   # There are still words in the sentence after cleaning it
-                    sentence_labelized, label_of_sentence = labelize_sentence(dates_in_sentences,file_dates,line)
-                    total_sentences.extend(sentence_labelized)
-                    labels.extend(label_of_sentence)
-                    # if len(dates_in_sentences)>1 : print("Got ",len(dates_in_sentences)," conflicting dates")
-                    #Just take the first date for now
-                    total_dates.append(dates_in_sentences[0])
+                
+                sentences_labelized, label_of_sentence = labelize_sentences(dates_in_sentences,file_dates,line)
+                total_sentences.extend(sentences_labelized)
+                labels.extend(label_of_sentence)
                             
-    return total_sentences,labels,total_dates
+    return total_sentences,labels
 
 
 # ----------------------- Output for all files --------------------------------
@@ -222,7 +258,7 @@ with open(train_files_ids_path, 'r', encoding="utf8") as file:
         print(row[0],end=" ")
         print(row[1],end=" ")
         print('='*42) """
-        file_sentences,file_labels,dates=file_info(row[1],text_dates[int(row[0])]) # row[0] is ID and row[1] is filename
+        file_sentences,file_labels=file_info(row[1],text_dates[int(row[0])]) # row[0] is ID and row[1] is filename
         
         all_sentences.extend(file_sentences)
         all_labels.extend(file_labels)
@@ -235,4 +271,4 @@ d = {'Sentences': all_sentences, 'Label': all_labels}
 
 df = panda.DataFrame(data=d)
 
-# print(df.to_string())
+#print(df.sort_values(by=['Label']).to_string())

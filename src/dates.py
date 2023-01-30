@@ -21,8 +21,15 @@ months = "(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|
 # date in the dd month yyyy format (spaces allowed between / and numbers)
 date_f2 = dd + " *" + months + " *" + yyyy
 
+
+pattern_f1 = "(?:0[1-9]| [1-9]|1[0-9]|2[0-9]|3[0-1]|1er) *[(\/|\-|\.)] *(?:0[1-9]|1[0-2]) *[(\/|\-|\.)] *(?:[1-2] {0,1}[0-9][0-9][0-9])"
+pattern_f2 = "(?:0[1-9]| [1-9]|1[0-9]|2[0-9]|3[0-1]|1er) *(?:janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre|decembre|fevrier|aout) *(?:[1-2] {0,1}[0-9][0-9][0-9])"
+
+
 # date format :
 
 date_f = "(" + date_f1 + "|" + date_f2 + ")"
+pattern_f = r"(?:" + pattern_f1 + "|" + pattern_f2 + ")"
+
 
 # -----------------------------------------
