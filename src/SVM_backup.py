@@ -1,4 +1,4 @@
-from Data_frame import df
+from Data_frame import df_train
 import numpy as np
 from sklearn import svm
 
@@ -35,7 +35,7 @@ def get_best_scores(scores,nb=50):
     return vec,sorted_scores
 
 
-occurences = compute_words_occurence(df)
+occurences = compute_words_occurence(df_train)
 vec,sorted_scores = get_best_scores(scores_from_occurences(occurences))
 
 for k,v in sorted_scores[0].items():
@@ -57,11 +57,11 @@ def encode_sentence(sentence,words_vec):
 
 
 # Setting up the training datas
-x_train = np.zeros([len(df),len(vec)])
-y_train = np.zeros(len(df))
-for i in range(len(df)):
-    x_train[i,:] = encode_sentence(df['Sentences'][i],vec)
-    y_train[i] = df['Label'][i]
+x_train = np.zeros([len(df_train),len(vec)])
+y_train = np.zeros(len(df_train))
+for i in range(len(df_train)):
+    x_train[i,:] = encode_sentence(df_train['Sentences'][i],vec)
+    y_train[i] = df_train['Label'][i]
 
 #Training the SVM
 classifier = svm.SVC(kernel='linear')
