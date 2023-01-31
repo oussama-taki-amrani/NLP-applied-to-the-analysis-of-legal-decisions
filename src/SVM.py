@@ -1,6 +1,6 @@
-from Data_frame import df,docs_starts,text_dates, all_dates
+from Data_frame import df_train
 import numpy as np
-from sklearn import svm
+from sklearn import svm, linear_model, ensemble
 import json
 
 
@@ -46,22 +46,17 @@ def encode_sentence(sentence,words_vec):
 
 
 
-#Dividing the data frame into a training and a validation set
-nb_docs = len(docs_starts)-1 #The total number of documents in the train folder
-train_proportion = .7 # The proportion of documents we want for the training
-nb_docs_train = int(train_proportion*nb_docs)
-nb_docs_test = nb_docs - nb_docs_train
-all_sentences = np.array(df['Sentences'])
-all_labels = np.array(df['Label'])
-df_train = {'Sentences':all_sentences[:docs_starts[nb_docs_train]],'Label':all_labels[:docs_starts[nb_docs_train]]}
-df_test = {'Sentences':all_sentences[docs_starts[nb_docs_train]:],'Label':all_labels[docs_starts[nb_docs_train]:]}
-docs_starts_test = np.array(docs_starts)[nb_docs_train:] - docs_starts[nb_docs_train]
-print("DOCS:", docs_starts_test[:10])
-print("S:", len(text_dates)+1,"P: ",nb_docs)
-docs_tests_dates = [text_dates[i] for i in range(nb_docs_train-1,nb_docs-1)]
-sent_dates = []
-for i in range(docs_starts[nb_docs_train],len(all_sentences)):
-    sent_dates.append(all_dates[i])
+# all_sentences = np.array(df['Sentences'])
+# all_labels = np.array(df['Label'])
+# df_train = {'Sentences':all_sentences[:docs_starts[nb_docs_train]],'Label':all_labels[:docs_starts[nb_docs_train]]}
+# df_test = {'Sentences':all_sentences[docs_starts[nb_docs_train]:],'Label':all_labels[docs_starts[nb_docs_train]:]}
+# docs_starts_test = np.array(docs_starts)[nb_docs_train:] - docs_starts[nb_docs_train]
+# print("DOCS:", docs_starts_test[:10])
+# print("S:", len(text_dates)+1,"P: ",nb_docs)
+# docs_tests_dates = [text_dates[i] for i in range(nb_docs_train-1,nb_docs-1)]
+# sent_dates = []
+# for i in range(docs_starts[nb_docs_train],len(all_sentences)):
+#     sent_dates.append(all_dates[i])
 
 
 
@@ -85,7 +80,9 @@ for i in range(len(df_train['Label'])):
     x_train[i,:] = encode_sentence(df_train['Sentences'][i],vec)
     y_train[i] = df_train['Label'][i]
 #Training the SVM
-classifier = svm.SVC(kernel='linear')
+# classifier = svm.SVC(kernel='linear')
+classifier = linear_model.LogisticRegression()
+# classifier = ensemble.RandomForestClassifier()
 print("Start learning")
 print("taille",len(y_train))
 classifier.fit(x_train,y_train)

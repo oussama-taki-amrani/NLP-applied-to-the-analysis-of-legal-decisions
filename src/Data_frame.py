@@ -6,6 +6,7 @@ import pandas as panda
 from dates import months, date_f1, date_f2,pattern_f
 from random import sample
 import os
+import numpy as np
 
 train_folder_path = "../train_folder_predilex/train_folder/txt_files/"
 train_files_ids_path = "../train_folder_predilex/train_folder/x_train_ids.csv"
@@ -248,19 +249,19 @@ def file_info(filename,file_dates):
                             
     return total_sentences,labels, total_dates
 
-IDS_771 = [i for i in range(771)]
+IDS_771 = range(771)
 
 def create_dataframe(list_of_ids):
     all_sentences = []
     all_labels = []
-    
+    all_dates = []
     with open(train_files_ids_path, 'r', encoding="utf8") as file:
         text_dates = get_dates()
         csvreader = csv.reader(file)
         next(csvreader)                 # skip the first row [ID, filename]
 
         for row in csvreader:
-            if(row[0] not in list_of_ids):
+            if(int(row[0]) not in list_of_ids):
                 continue
             """ print('='*42,end=" ID : ")
             print(row[0],end=" ")
@@ -270,18 +271,33 @@ def create_dataframe(list_of_ids):
             
             all_sentences.extend(file_sentences)
             all_labels.extend(file_labels)
+            all_dates.extend(dates)
             
             """ for i in range(0,len(file_sentences)):
                 print(file_sentences[i] , "\n    LABEL :", file_labels[i],end="\n\n")
             print('='*100) """
-    d = {'Sentences': all_sentences, 'Label': all_labels}
+    d = {'Sentences': all_sentences, 'Label': all_labels,'Dates' : all_dates}
 
     df = panda.DataFrame(data=d)
     return df
 
 Train_IDS = sample(IDS_771,int((70/100)*771))
-#Test_IDS = IDS_771 - Train_IDS
+# Test_IDS = IDS_771 - Train_IDS
+Test_IDS = [i for i in IDS_771 if i not in Train_IDS]
 
 df_train = create_dataframe(Train_IDS)
+df_test = create_dataframe(Test_IDS)
 
-# print(df.sort_values(by=['Label']).to_string())
+df_0_1=df_train.loc[df_train['Label'].isin([0,1])]
+df_2=df_train.loc[df_train['Label'] == 2]
+df_2 = df_train.sample(n=int(len(df_0_1)))
+
+
+#print(df_0_1.sort_values(by=['Label']).to_string())
+#print(df_2.to_string())
+
+frames = [df_0_1, df_2]
+result = panda.concat(frames, ignore_index=True, sort=False)
+df_train = result
+
+# print(df_train.sort_values(by=['Label']).to_string())
