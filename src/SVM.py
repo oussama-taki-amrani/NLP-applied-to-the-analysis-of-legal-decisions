@@ -91,3 +91,4 @@ print("taille",len(y_train))
 classifier.fit(x_train,y_train)
 
 
+
