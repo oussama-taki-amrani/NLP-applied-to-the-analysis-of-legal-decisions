@@ -4,6 +4,7 @@ import csv
 from enum import Enum
 import pandas as panda
 from dates import months, date_f1, date_f2,pattern_f
+import os
 
 train_folder_path = "../train_folder_predilex/train_folder/txt_files/"
 train_files_ids_path = "../train_folder_predilex/train_folder/x_train_ids.csv"
@@ -226,6 +227,7 @@ def file_info(filename,file_dates):
     
     labels = []
     total_sentences=[]
+    total_dates=[]
     for line in f: # iterate over the lines of the text
         if(f!='\n'): # ignore blank lines
             line = unidecode(line) # remove accents and non-ascii characters
@@ -241,13 +243,16 @@ def file_info(filename,file_dates):
                 sentences_labelized, label_of_sentence,dates_in_sentences = labelize_sentences(dates_in_sentences,file_dates,line)
                 total_sentences.extend(sentences_labelized)
                 labels.extend(label_of_sentence)
+                total_dates.extend(dates_in_sentences)
                             
-    return total_sentences,labels, dates_in_sentences
+    return total_sentences,labels, total_dates
 
 
 # ----------------------- Output for all files --------------------------------
 all_sentences = []
 all_labels = []
+docs_starts = [0] #We need this to create two sets of documents :  one for training and another for tests
+all_dates = []
 
 with open(train_files_ids_path, 'r', encoding="utf8") as file:
     text_dates = get_dates()
@@ -263,11 +268,13 @@ with open(train_files_ids_path, 'r', encoding="utf8") as file:
         
         all_sentences.extend(file_sentences)
         all_labels.extend(file_labels)
+        docs_starts.append(docs_starts[-1]+len(file_labels)) #That means that the sentences found in the doc i are all_sentences[doc_starts[i]:doc_starts[i+1]]
+        all_dates.extend(dates)
         
         """ for i in range(0,len(file_sentences)):
             print(file_sentences[i] , "\n    LABEL :", file_labels[i],end="\n\n")
         print('='*100) """
-
+    docs_starts.append(-1) #For the last document to be in the same format : [doc_starts[i]:doc_starts[i+1]]
 d = {'Sentences': all_sentences, 'Label': all_labels}
 
 df = panda.DataFrame(data=d)
