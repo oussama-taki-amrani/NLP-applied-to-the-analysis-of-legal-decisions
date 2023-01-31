@@ -4,6 +4,7 @@ import csv
 from enum import Enum
 import pandas as panda
 from dates import months, date_f1, date_f2,pattern_f
+from random import sample
 import os
 
 train_folder_path = "../train_folder_predilex/train_folder/txt_files/"
@@ -247,41 +248,46 @@ def file_info(filename,file_dates):
                             
     return total_sentences,labels, total_dates
 
+IDS_771 = [i for i in range(771)]
 
-# ----------------------- Output for all files --------------------------------
-all_sentences = []
-all_labels = []
-docs_starts = [0] #We need this to create two sets of documents :  one for training and another for tests
-all_dates = []
-
-with open(train_files_ids_path, 'r', encoding="utf8") as file:
-    text_dates = get_dates()
-    csvreader = csv.reader(file)
-    next(csvreader)                 # skip the first row [ID, filename]
+def create_dataframe(list_of_ids):
+    all_sentences = []
+    all_labels = []
     
-    for row in csvreader:
-        """ print('='*42,end=" ID : ")
-        print(row[0],end=" ")
-        print(row[1],end=" ")
-        print('='*42) """
-        file_sentences,file_labels, dates=file_info(row[1],text_dates[int(row[0])]) # row[0] is ID and row[1] is filename
-        
-        all_sentences.extend(file_sentences)
-        all_labels.extend(file_labels)
-        docs_starts.append(docs_starts[-1]+len(file_labels)) #That means that the sentences found in the doc i are all_sentences[doc_starts[i]:doc_starts[i+1]]
-        all_dates.extend(dates)
-        
-        """ for i in range(0,len(file_sentences)):
-            print(file_sentences[i] , "\n    LABEL :", file_labels[i],end="\n\n")
-        print('='*100) """
-    docs_starts.append(-1) #For the last document to be in the same format : [doc_starts[i]:doc_starts[i+1]]
-d = {'Sentences': all_sentences, 'Label': all_labels}
+    with open(train_files_ids_path, 'r', encoding="utf8") as file:
+        text_dates = get_dates()
+        csvreader = csv.reader(file)
+        next(csvreader)                 # skip the first row [ID, filename]
 
-df = panda.DataFrame(data=d)
+        for row in csvreader:
+            if(row[0] not in list_of_ids):
+                continue
+            """ print('='*42,end=" ID : ")
+            print(row[0],end=" ")
+            print(row[1],end=" ")
+            print('='*42) """
+            file_sentences,file_labels, dates=file_info(row[1],text_dates[int(row[0])]) # row[0] is ID and row[1] is filename
+            
+            all_sentences.extend(file_sentences)
+            all_labels.extend(file_labels)
+            
+            """ for i in range(0,len(file_sentences)):
+                print(file_sentences[i] , "\n    LABEL :", file_labels[i],end="\n\n")
+            print('='*100) """
+    d = {'Sentences': all_sentences, 'Label': all_labels}
 
-df_0_1=df.loc[df['Label'].isin([0,1])]
-df_2=df.loc[df['Label'] == 2]
-df_2 = df_2.sample(n=int(len(df_0_1)/2))
+    df = panda.DataFrame(data=d)
+    return df
+
+Train_IDS = sample(IDS_771,int((70/100)*771))
+Test_IDS = IDS_771 - Train_IDS
+
+df_train = create_dataframe(Train_IDS)
+df_test = create_dataframe(Test_IDS)
+
+df_0_1=df_train.loc[df_train['Label'].isin([0,1])]
+df_2=df_train.loc[df_train['Label'] == 2]
+df_2 = df_train.sample(n=int(len(df_0_1)/2))
 
 
 #print(df_0_1.sort_values(by=['Label']).to_string())
@@ -289,6 +295,6 @@ df_2 = df_2.sample(n=int(len(df_0_1)/2))
 
 frames = [df_0_1, df_2]
 result = panda.concat(frames, ignore_index=True, sort=False)
-df = result
+df_train = result
 
 # print(df.sort_values(by=['Label']).to_string())
