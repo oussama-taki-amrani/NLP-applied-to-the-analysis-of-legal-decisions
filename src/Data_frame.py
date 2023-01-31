@@ -272,4 +272,16 @@ d = {'Sentences': all_sentences, 'Label': all_labels}
 
 df = panda.DataFrame(data=d)
 
-#print(df.sort_values(by=['Label']).to_string())
+df_0_1=df.loc[df['Label'].isin([0,1])]
+df_2=df.loc[df['Label'] == 2]
+df_2 = df_2.sample(n=int(len(df_0_1)/2))
+
+
+#print(df_0_1.sort_values(by=['Label']).to_string())
+#print(df_2.to_string())
+
+frames = [df_0_1, df_2]
+result = panda.concat(frames, ignore_index=True, sort=False)
+df = result
+
+# print(df.sort_values(by=['Label']).to_string())

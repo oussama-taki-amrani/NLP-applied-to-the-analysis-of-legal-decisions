@@ -38,6 +38,16 @@ def get_best_scores(scores,nb=50):
 occurences = compute_words_occurence(df)
 vec,sorted_scores = get_best_scores(scores_from_occurences(occurences))
 
+for k,v in sorted_scores[0].items():
+    print(k,(30-len(k))*" ",":",v,end="      ")
+    print(occurences[0][k],"       ",occurences[1][k]+occurences[2][k])
+for k,v in sorted_scores[1].items():
+    print(k,(30-len(k))*" ",":",v,end="      ")
+    print(occurences[1][k],"       ",occurences[0][k]+occurences[2][k])
+for k,v in sorted_scores[2].items():
+    print(k,(30-len(k))*" ",":",v,end="      ")
+    print(occurences[2][k],"       ",occurences[1][k]+occurences[0][k])
+
 #Bag of words
 def encode_sentence(sentence,words_vec):
     x = []
