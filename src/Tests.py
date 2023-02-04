@@ -52,8 +52,10 @@ def predict_dates_from_filename(file_name, word_vec, clf):
 true_dates = get_dates()
 prec_per_date = 0
 prec_per_doc = 0
+acc_per_classe = [0,0]
 for i in range(len(Test_IDS)):
     doc_df = create_dataframe([Test_IDS[i]])
+    print("ID  :", Test_IDS[i])
     sentences = doc_df['Sentences']
     if (len(sentences)) == 0:
         continue
@@ -64,9 +66,17 @@ for i in range(len(Test_IDS)):
     print("Predites :", prediction)
     print("====================================================")
     if prediction==t_dates: prec_per_doc+=1
-    if (prediction[0] == t_dates[0]) : prec_per_date+=1
-    if (prediction[1] == t_dates[1]) : prec_per_date+=1
+    if (prediction[0] == t_dates[0]) : 
+        prec_per_date+=1
+        acc_per_classe[0] +=1
+    if (prediction[1] == t_dates[1]) : 
+        prec_per_date+=1
+        acc_per_classe[1] +=1
 prec_per_doc = 100*prec_per_doc/(len(Test_IDS))
+acc_per_classe[0] = 100*acc_per_classe[0]/(len(Test_IDS))
+acc_per_classe[1] = 100*acc_per_classe[1]/(len(Test_IDS))
 prec_per_date = 100*prec_per_date/(2*(len(Test_IDS)))
 print("Precision par document = ",prec_per_doc,"%")
 print("Precision par date = ",prec_per_date,"%")
+print("Precision accident = ",acc_per_classe[0],"%")
+print("Precision consoldiation = ",acc_per_classe[1],"%")

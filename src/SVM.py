@@ -7,6 +7,7 @@ import json
 def compute_words_occurence(labelized_sentences):
 
     occurences = [{},{},{}]
+    total_of_words_per_class = [0,0,0]
     for i in range(len(labelized_sentences['Label'])):
         sentence = labelized_sentences['Sentences'][i]
         label = labelized_sentences['Label'][i]
@@ -16,23 +17,27 @@ def compute_words_occurence(labelized_sentences):
                 occurences[1][word] = 0
                 occurences[2][word] = 0
             occurences[label][word] += 1
-    return occurences
+            total_of_words_per_class[label]+=1
+    total_of_words = sum(total_of_words_per_class)
+    percentage_of_words = [x / total_of_words for x in total_of_words_per_class]
+    print(percentage_of_words)
+    return occurences,percentage_of_words
 
-def scores_from_occurences(occurences,alpha=1):
+def scores_from_occurences(occurences,percentage,alpha=0.2):
     scores = [{},{},{}]
     for word in occurences[0]:
-        scores[0][word] = occurences[0][word] / (1 + alpha*(occurences[1][word] + occurences[2][word]))
-        scores[1][word] = occurences[1][word] / (1 + alpha*(occurences[0][word] + occurences[2][word]))
-        scores[2][word] = occurences[2][word] / (1 + alpha*(occurences[0][word] + occurences[1][word]))
+        scores[0][word] = occurences[0][word] / (1 + alpha*(occurences[1][word] + 0.05*occurences[2][word]))
+        scores[1][word] = occurences[1][word] / (1 + alpha*(occurences[0][word] + 0.05*occurences[2][word]))
+        scores[2][word] = occurences[2][word] / (1 + alpha*(5*occurences[0][word] + 5*occurences[1][word]))
     return scores
 
 #Sorting scores
-def get_best_scores(scores,nb=50):
+def get_best_scores(scores,nb=[100,50,200]):
     sorted_scores = [{}, {}, {}]
     sorted_scores[0] =  dict(sorted(scores[0].items(), key=lambda x: x[1],reverse=True))
     sorted_scores[1] =  dict(sorted(scores[1].items(), key=lambda x: x[1],reverse=True))
     sorted_scores[2] =  dict(sorted(scores[2].items(), key=lambda x: x[1],reverse=True))
-    vec = list(sorted_scores[0].keys())[0:nb] + list(sorted_scores[1].keys())[0:nb] + list(sorted_scores[2].keys())[0:nb]
+    vec = list(sorted_scores[0].keys())[0:nb[0]] + list(sorted_scores[1].keys())[0:nb[1]] + list(sorted_scores[2].keys())[0:nb[2]]
     return vec,sorted_scores
 
 
@@ -61,8 +66,8 @@ def encode_sentence(sentence,words_vec):
 
 
 #Computing scores
-occurences = compute_words_occurence(df_train)
-vec, sorted_scores = get_best_scores(scores_from_occurences(occurences))
+occurences,percentages = compute_words_occurence(df_train)
+vec, sorted_scores = get_best_scores(scores_from_occurences(occurences,percentages))
 with open("../outputs/sorted_scores_accident.txt", 'w') as file:
     file.write(json.dumps(sorted_scores[0]))
 with open("../outputs/sorted_scores_consolidation.txt", 'w') as file:
@@ -70,7 +75,18 @@ with open("../outputs/sorted_scores_consolidation.txt", 'w') as file:
 with open("../outputs/sorted_scores_other.txt", 'w') as file:
     file.write(json.dumps(sorted_scores[2]))
 
-
+for k,v in sorted_scores[0].items():
+    print(k,(30-len(k))*" ",":",v,end="      ")
+    print(occurences[0][k],"       ",occurences[1][k]+occurences[2][k])
+print("="*100)
+for k,v in sorted_scores[1].items():
+    print(k,(30-len(k))*" ",":",v,end="      ")
+    print(occurences[1][k],"       ",occurences[0][k]+occurences[2][k])
+print("="*100)
+for k,v in sorted_scores[2].items():
+    print(k,(30-len(k))*" ",":",v,end="      ")
+    print(occurences[2][k],"       ",occurences[1][k]+occurences[0][k])
+print("="*100)
 
 # Setting up the training datas
 x_train = np.zeros([len(df_train['Sentences']), len(vec)])
@@ -81,7 +97,7 @@ for i in range(len(df_train['Label'])):
     y_train[i] = df_train['Label'][i]
 #Training the SVM
 # classifier = svm.SVC(kernel='linear')
-classifier = linear_model.LogisticRegression()
+classifier = linear_model.LogisticRegression(max_iter=200)
 # classifier = ensemble.RandomForestClassifier()
 print("Start learning")
 print("taille",len(y_train))

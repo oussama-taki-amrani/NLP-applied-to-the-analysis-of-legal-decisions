@@ -5,8 +5,9 @@ from enum import Enum
 import pandas as panda
 from dates import months, date_f1, date_f2,pattern_f
 from random import sample
-import os
+from math import floor
 import numpy as np
+import os
 
 train_folder_path = "../train_folder_predilex/train_folder/txt_files/"
 train_files_ids_path = "../train_folder_predilex/train_folder/x_train_ids.csv"
@@ -82,8 +83,8 @@ def clean_sentence(str):
     str = re.sub(r'[^\w\s]', ' ', str) # remove all punctuation and replace with space
     str = re.sub("\d+", "", str)       # remove all numerical characters
     str = re.sub(months,"",str)        # remove all months names
-    str = re.sub(r'\b[a-zA-Z]{1,2}\b'," ", str) # remove all words that have a length equal to 2 or less
-    str = re.sub(r"\b(%s)\b" % "|".join(stopwords), " ", str) # remove all stopwords in the list stopwords
+    str = re.sub(r'\b[a-zA-Z]{1}\b'," ", str) # remove all words that have a length equal to 2 or less
+    #str = re.sub(r"\b(%s)\b" % "|".join(stopwords), " ", str) # remove all stopwords in the list stopwords
 
     return str
 
@@ -109,6 +110,11 @@ def transform_dates_to_tuples(dates_format1,dates_format2):
                 list_tmp[0]=int(dates_format1[i][0])
             list_tmp[1]=int(dates_format1[i][1])
             list_tmp[2]=int(dates_format1[i][2].replace(" ", ""))
+            if int(list_tmp[2])<1000:
+                if int(list_tmp[2])<23:
+                    list_tmp[2] = list_tmp[2] + 2000
+                else :
+                    list_tmp[2] = list_tmp[2] + 1000
             dates_format1[i]=tuple(list_tmp)
             
         list_of_dates.extend(dates_format1)
@@ -157,40 +163,65 @@ def labelize_sentences(dates_in_sentence,file_dates,line):
     Returns:
         list: a 2xn list of the sub_sentences and their labels
     """
+    if len(dates_in_sentence)==0:
+        return [],[],dates_in_sentence
     sentences_labelized = []  # the list of sub sentences that the function will return 
     labels = [] # the corresponding labels of these sub sentences
     isADate = False
     sub_sentences = [] # list of sentences where we reassemble the left and right part of the sentence
     sentence_split_on_date = re.split(pattern_f, line) # a list of sentence split whenever a date is found
+    sentence_split_on_date.append(" ") # in case the last part of the sentence is a date
+    W = 5 # Half size of the windows
+    
     
     for i in range(0, len(dates_in_sentence)):
         left_part = clean_sentence(sentence_split_on_date[i])
         right_part = clean_sentence(sentence_split_on_date[i+1])
-        sub_sentences.append(left_part+" "+right_part)
-    
+        right = right_part.split()
+        left = left_part.split()
+        len_l = len(left)
+        len_r = len(right)
+        
+        
+        if len_l < W or len_r < W :
+            
+            if(len(right_part.split())>=W):
+                right_part = [right[indx] for indx in range(0,min(len_r,2*W-len_l))]
+            else:
+                right_part = right
+                #left_to_ten = W - len(right)
+            
+            if(len(left)>=W):
+                left_part = [left[indx] for indx in range(0,min(2*W-len_r,len_l),len_l)]
+            else:
+                left_part = left
+        else:
+            right_part = right[0:W]
+            left_part = left[len_l-W:len_l]
+            
+        sub_sentences.append(left_part+right_part)
     pop_indexes = []
-    
-                                    
+                                        
     for i  in range(0,len(dates_in_sentence)):
         
-        if len(sub_sentences[i].split()) == 0:
+        if len(sub_sentences[i]) == 0:
             pop_indexes.append(i)
             continue
         
         isADate = False
         
         if dates_in_sentence[i] == file_dates[0]:
-            sentences_labelized.append(sub_sentences[i].split())
+            sentences_labelized.append(sub_sentences[i])
             labels.append(0)
             isADate = True
             
         if dates_in_sentence[i] == file_dates[1] and isADate==False:
-            sentences_labelized.append(sub_sentences[i].split())
+            sentences_labelized.append(sub_sentences[i])
             labels.append(1)
             isADate = True
             
         if isADate == False:
-            sentences_labelized.append(sub_sentences[i].split())
+            sentences_labelized.append(sub_sentences[i])
             labels.append(2)
         
     for index in sorted(pop_indexes, reverse=True):
@@ -226,10 +257,11 @@ def file_info(filename,file_dates):
     file_path = train_folder_path + filename
     
     f = open(file_path, "r", encoding="utf8")
-    
+
     labels = []
     total_sentences=[]
     total_dates=[]
+    
     for line in f: # iterate over the lines of the text
         if(f!='\n'): # ignore blank lines
             line = unidecode(line) # remove accents and non-ascii characters
@@ -263,26 +295,42 @@ def create_dataframe(list_of_ids):
         for row in csvreader:
             if(int(row[0]) not in list_of_ids):
                 continue
-            """ print('='*42,end=" ID : ")
-            print(row[0],end=" ")
-            print(row[1],end=" ")
-            print('='*42) """
+            
             file_sentences,file_labels, dates=file_info(row[1],text_dates[int(row[0])]) # row[0] is ID and row[1] is filename
             
             all_sentences.extend(file_sentences)
             all_labels.extend(file_labels)
             all_dates.extend(dates)
             
-            """ for i in range(0,len(file_sentences)):
-                print(file_sentences[i] , "\n    LABEL :", file_labels[i],end="\n\n")
-            print('='*100) """
     d = {'Sentences': all_sentences, 'Label': all_labels,'Dates' : all_dates}
 
     df = panda.DataFrame(data=d)
     return df
 
-Train_IDS = sample(IDS_771,int((70/100)*771))
-# Test_IDS = IDS_771 - Train_IDS
+def select_80_percent():
+    IDs = [0]
+    curr_city = ''
+    with open(train_files_ids_path, 'r', encoding="utf8") as file:
+        csvreader = csv.reader(file)
+        next(csvreader)                  # skip the first row [ID, filename]
+        row =  next(csvreader)
+        curr_city = row[1][0:3]
+        for index, row in enumerate(csvreader):
+            if row[1][0:3] != curr_city:
+                curr_city = row[1][0:3]
+                IDs.append(index-2)
+    IDs.append(771)
+    return IDs  
+                
+IDs = select_80_percent()
+Train_IDS = []
+for i in range(0, len(IDs)-1):
+    Train_IDS.extend(sample(range(IDs[i], IDs[i+1]), floor((80/100)*(IDs[i+1] - IDs[i]))))
+
+
+
+Train_IDS.sort()
+
 Test_IDS = [i for i in IDS_771 if i not in Train_IDS]
 
 df_train = create_dataframe(Train_IDS)
@@ -290,7 +338,7 @@ df_test = create_dataframe(Test_IDS)
 
 df_0_1=df_train.loc[df_train['Label'].isin([0,1])]
 df_2=df_train.loc[df_train['Label'] == 2]
-df_2 = df_train.sample(n=int(len(df_0_1)))
+#df_2 = df_train.sample(n=floor(len(df_0_1)))
 
 
 #print(df_0_1.sort_values(by=['Label']).to_string())
