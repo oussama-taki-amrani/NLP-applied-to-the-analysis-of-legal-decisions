@@ -284,6 +284,24 @@ def file_info(filename,file_dates):
 IDS_771 = range(771)
 
 def create_dataframe(list_of_ids):
+    """This function creates a dataframe corresponding to the documents in the list of ids
+    given in the list as a parameter
+    
+    It iterates over the lines of each document, extracts the sentences where a date was
+    found.
+    
+    For each date found, we take a window of fixed size : W , of words surrounding the date.
+    
+    We labelize this list of words with one of the three labels 0, 1 or 2, depending on
+    whether the date is respectively an accident date, a consolidation date or none of these.
+    
+
+    Args:
+        list_of_ids (list): a list of IDs of the training dataset
+
+    Returns:
+        panda dataframe: A dataframe where all the list of the words where labelized
+    """
     all_sentences = []
     all_labels = []
     all_dates = []
