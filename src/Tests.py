@@ -3,6 +3,13 @@ from Data_frame import create_dataframe, Test_IDS, get_dates
 from SVM import vec, classifier, encode_sentence
 import numpy as np
 
+class colors:
+    reset = '\033[0m'
+    class fg:
+            red = '\033[31m'
+            green = '\033[32m'
+        
+
 test_folder_path = "../test_folder_predilex/test_folder/txt_files/"
 
 
@@ -63,7 +70,17 @@ for i in range(len(Test_IDS)):
     prediction = predict_dates(sentences,dates,vec,classifier)
     t_dates = true_dates[Test_IDS[i]]
     print("Reelles  :", t_dates)
-    print("Predites :", prediction)
+    # print("Predites :", prediction)
+    print("Predites :", end =" [")
+    if prediction[0]==t_dates[0]:
+        print (colors.fg.green, prediction[0], colors.reset, end = ", ")
+    else:
+        print (colors.fg.red, prediction[0], colors.reset , end = ", ")
+    if prediction[1]==t_dates[1]:
+        print (colors.fg.green, prediction[1], colors.reset, end = "]\n")
+    else:
+        print (colors.fg.red, prediction[1], colors.reset, end = "]\n")
+    print(colors.reset)    
     print("====================================================")
     if prediction==t_dates: prec_per_doc+=1
     if (prediction[0] == t_dates[0]) : 

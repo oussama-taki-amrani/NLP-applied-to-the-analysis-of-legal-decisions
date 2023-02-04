@@ -83,7 +83,7 @@ def clean_sentence(str):
     str = re.sub(r'[^\w\s]', ' ', str) # remove all punctuation and replace with space
     str = re.sub("\d+", "", str)       # remove all numerical characters
     str = re.sub(months,"",str)        # remove all months names
-    str = re.sub(r'\b[a-zA-Z]{1}\b'," ", str) # remove all words that have a length equal to 2 or less
+    str = re.sub(r'\b[a-zA-Z]{1,2}\b'," ", str) # remove all words that have a length equal to 2 or less
     #str = re.sub(r"\b(%s)\b" % "|".join(stopwords), " ", str) # remove all stopwords in the list stopwords
 
     return str
@@ -171,7 +171,7 @@ def labelize_sentences(dates_in_sentence,file_dates,line):
     sub_sentences = [] # list of sentences where we reassemble the left and right part of the sentence
     sentence_split_on_date = re.split(pattern_f, line) # a list of sentence split whenever a date is found
     sentence_split_on_date.append(" ") # in case the last part of the sentence is a date
-    W = 5 # Half size of the windows
+    W = 8 # Half size of the windows
     
     
     for i in range(0, len(dates_in_sentence)):
@@ -340,12 +340,6 @@ df_0_1=df_train.loc[df_train['Label'].isin([0,1])]
 df_2=df_train.loc[df_train['Label'] == 2]
 #df_2 = df_train.sample(n=floor(len(df_0_1)))
 
-
-#print(df_0_1.sort_values(by=['Label']).to_string())
-#print(df_2.to_string())
-
 frames = [df_0_1, df_2]
 result = panda.concat(frames, ignore_index=True, sort=False)
 df_train = result
-
-# print(df_train.sort_values(by=['Label']).to_string())
