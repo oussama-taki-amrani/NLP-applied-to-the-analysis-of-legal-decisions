@@ -144,8 +144,8 @@ def transform_dates_to_tuples(dates_format1,dates_format2):
     
     return list_of_dates
 
-def labelize_sentences(dates_in_sentence,file_dates,line):
-    """ This function is used to labelize the sub sentences of the according to the
+def label_sentences(dates_in_sentence,file_dates,line):
+    """ This function is used to label the sub sentences of the according to the
     dates that occured in each part of the line.
     
     If the line contains more than one date sub sentences are created
@@ -173,7 +173,7 @@ def labelize_sentences(dates_in_sentence,file_dates,line):
     """
     if len(dates_in_sentence)==0:
         return [],[],dates_in_sentence
-    sentences_labelized = []  # the list of sub sentences that the function will return 
+    sentences_labeled = []  # the list of sub sentences that the function will return 
     labels = [] # the corresponding labels of these sub sentences
     isADate = False
     sub_sentences = [] # list of sentences where we reassemble the left and right part of the sentence
@@ -185,12 +185,14 @@ def labelize_sentences(dates_in_sentence,file_dates,line):
     for i in range(0, len(dates_in_sentence)):
         left_part = clean_sentence(sentence_split_on_date[i])
         right_part = clean_sentence(sentence_split_on_date[i+1])
-        right = right_part.split()
-        left = left_part.split()
+        right = right_part.split() # right part of the date converted to list of words
+        left = left_part.split() # left part of the date converted to list of words
         len_l = len(left)
         len_r = len(right)
         
-        
+        # If one part has more words than the other one, we will take more words from
+        # the long part and add them to the list, until there are no more words or
+        # that we reached the max length == 2*W
         if len_l < W or len_r < W :
             
             if(len(right_part.split())>=W):
@@ -208,7 +210,8 @@ def labelize_sentences(dates_in_sentence,file_dates,line):
             
         sub_sentences.append(left_part+right_part)
     pop_indexes = []
-                                        
+    
+    # In the following loop the lists of words are labeled                                    
     for i  in range(0,len(dates_in_sentence)):
         
         if len(sub_sentences[i]) == 0:
@@ -218,23 +221,23 @@ def labelize_sentences(dates_in_sentence,file_dates,line):
         isADate = False
         
         if dates_in_sentence[i] == file_dates[0]:
-            sentences_labelized.append(sub_sentences[i])
+            sentences_labeled.append(sub_sentences[i])
             labels.append(0)
             isADate = True
             
         if dates_in_sentence[i] == file_dates[1] and isADate==False:
-            sentences_labelized.append(sub_sentences[i])
+            sentences_labeled.append(sub_sentences[i])
             labels.append(1)
             isADate = True
             
         if isADate == False:
-            sentences_labelized.append(sub_sentences[i])
+            sentences_labeled.append(sub_sentences[i])
             labels.append(2)
         
     for index in sorted(pop_indexes, reverse=True):
         del dates_in_sentence[index]
     
-    return sentences_labelized, labels, dates_in_sentence
+    return sentences_labeled, labels, dates_in_sentence
 
 def file_info(filename,file_dates):
 
@@ -270,8 +273,8 @@ def file_info(filename,file_dates):
             
             if(len(dates_in_sentences)!=0): # we found a least one date in the sentence
                 
-                sentences_labelized, label_of_sentence,dates_in_sentences = labelize_sentences(dates_in_sentences,file_dates,line)
-                total_sentences.extend(sentences_labelized)
+                sentences_labeled, label_of_sentence,dates_in_sentences = label_sentences(dates_in_sentences,file_dates,line)
+                total_sentences.extend(sentences_labeled)
                 labels.extend(label_of_sentence)
                 total_dates.extend(dates_in_sentences)
                             
@@ -288,7 +291,7 @@ def create_dataframe(list_of_ids):
     
     For each date found, we take a window of fixed size : W , of words surrounding the date.
     
-    We labelize this list of words with one of the three labels 0, 1 or 2, depending on
+    We label this list of words with one of the three labels 0, 1 or 2, depending on
     whether the date is respectively an accident date, a consolidation date or none of these.
     
 
@@ -296,7 +299,7 @@ def create_dataframe(list_of_ids):
         list_of_ids (list): a list of IDs of the training dataset
 
     Returns:
-        panda dataframe: A dataframe where all the list of the words where labelized
+        panda dataframe: A dataframe where all the list of the words where labeled
     """
     all_sentences = []
     all_labels = []
