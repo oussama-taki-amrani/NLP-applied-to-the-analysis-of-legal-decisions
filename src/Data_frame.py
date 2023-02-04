@@ -21,6 +21,14 @@ class Color(Enum):
     NONE = 3
 
 def month_to_num(month):
+    """Converts a month to a number
+
+    Args:
+        month (Str): The month to convert
+
+    Returns:
+        int: it corresponding number
+    """
     if month[0:3]=="jan":
         return 1
     elif month[0:3]=="fev":
@@ -189,7 +197,6 @@ def labelize_sentences(dates_in_sentence,file_dates,line):
                 right_part = [right[indx] for indx in range(0,min(len_r,2*W-len_l))]
             else:
                 right_part = right
-                #left_to_ten = W - len(right)
             
             if(len(left)>=W):
                 left_part = [left[indx] for indx in range(0,min(2*W-len_r,len_l),len_l)]
