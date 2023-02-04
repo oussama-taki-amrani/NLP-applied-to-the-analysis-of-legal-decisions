@@ -227,17 +227,6 @@ def labelize_sentences(dates_in_sentence,file_dates,line):
     for index in sorted(pop_indexes, reverse=True):
         del dates_in_sentence[index]
     
-    # TODO : Delete this  
-    """ 
-    print("Sentence : ",line,"Sub sentences : ")
-    for i  in range(0,len(dates_in_sentence)):
-        print("     ",end=" ")
-        print("Date : ",dates_in_sentence[i],end = "     ")
-        print(sentences_labelized[i])
-    
-    print("Sentences_labelized",labels,"      :",sentences_labelized,"\n\n")
-    """
-    
     return sentences_labelized, labels, dates_in_sentence
 
 def file_info(filename,file_dates):
