@@ -32,7 +32,7 @@ def scores_from_occurences(occurences,percentage,alpha=0.2):
     return scores
 
 #Sorting scores
-def get_best_scores(scores,nb=[50,50,50]):
+def get_best_scores(scores,nb=[80,30,100]):
     sorted_scores = [{}, {}, {}]
     sorted_scores[0] =  dict(sorted(scores[0].items(), key=lambda x: x[1],reverse=True))
     sorted_scores[1] =  dict(sorted(scores[1].items(), key=lambda x: x[1],reverse=True))
@@ -97,7 +97,7 @@ for i in range(len(df_train['Label'])):
     y_train[i] = df_train['Label'][i]
 #Training the SVM
 # classifier = svm.SVC(kernel='sigmoid',probability=True)
-classifier = linear_model.LogisticRegression(max_iter=100)
+classifier = linear_model.LogisticRegression(max_iter=150)
 # classifier = ensemble.RandomForestClassifier()
 print("Start learning")
 print("taille",len(y_train))
