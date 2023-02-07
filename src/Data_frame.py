@@ -179,7 +179,7 @@ def label_sentences(dates_in_sentence,file_dates,line):
     sub_sentences = [] # list of sentences where we reassemble the left and right part of the sentence
     sentence_split_on_date = re.split(pattern_f, line) # a list of sentence split whenever a date is found
     sentence_split_on_date.append(" ") # in case the last part of the sentence is a date
-    W = 5 # Half size of the windows
+    W = 6 # Half size of the windows
     
     
     for i in range(0, len(dates_in_sentence)):
