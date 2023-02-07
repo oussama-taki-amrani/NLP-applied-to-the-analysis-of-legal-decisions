@@ -179,7 +179,7 @@ def label_sentences(dates_in_sentence,file_dates,line):
     sub_sentences = [] # list of sentences where we reassemble the left and right part of the sentence
     sentence_split_on_date = re.split(pattern_f, line) # a list of sentence split whenever a date is found
     sentence_split_on_date.append(" ") # in case the last part of the sentence is a date
-    W = 8 # Half size of the windows
+    W = 5 # Half size of the windows
     
     
     for i in range(0, len(dates_in_sentence)):
@@ -314,6 +314,16 @@ def create_dataframe(list_of_ids):
                 continue
             
             file_sentences,file_labels, dates=file_info(row[1],text_dates[int(row[0])]) # row[0] is ID and row[1] is filename
+            # We gather all the similar dates together by concataneting their lists :
+            temp_data = [[],[],[]]
+            for i in range(len(dates)):
+                if dates[i] not in temp_data[0]:
+                    temp_data[0].append(dates[i])
+                    temp_data[1].append(file_sentences[i])
+                    temp_data[2].append(file_labels[i])
+                else:
+                    idx = temp_data[0].index(dates[i])
+                    temp_data[1][idx].extend(file_sentences[i])
             
             all_sentences.extend(file_sentences)
             all_labels.extend(file_labels)

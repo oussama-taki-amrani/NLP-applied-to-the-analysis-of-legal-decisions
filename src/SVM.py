@@ -96,7 +96,7 @@ for i in range(len(df_train['Label'])):
     x_train[i,:] = encode_sentence(df_train['Sentences'][i],vec)
     y_train[i] = df_train['Label'][i]
 #Training the SVM
-# classifier = svm.SVC(kernel='sigmoid')
+# classifier = svm.SVC(kernel='sigmoid',probability=True)
 classifier = linear_model.LogisticRegression(max_iter=100)
 # classifier = ensemble.RandomForestClassifier()
 print("Start learning")

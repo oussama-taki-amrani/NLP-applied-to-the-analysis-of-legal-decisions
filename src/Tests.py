@@ -20,14 +20,15 @@ def predict_dates(sentences, dates, word_vec, clf):
     x = np.zeros([len(sentences), len(vec)])
     for i in range(len(sentences)):
         x[i, :] = encode_sentence(sentences[i], word_vec)
-    results = clf.decision_function(x)
+    results = clf.predict_proba(x)
     acc = np.argmax(results[:, 0])
     cons = np.argmax(results[:, 1])
-    if results[acc, 0] > 0:
+    lim = .2
+    if results[acc, 0] > .1:
         date_accident = dates[acc]
     else:
         date_accident = ()
-    if results[cons, 1] > 0:
+    if results[cons, 1] > lim:
         date_consolidation = dates[cons]
     else:
         date_consolidation = ()
