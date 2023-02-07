@@ -1,6 +1,19 @@
 import csv
 from Data_frame import get_dates, file_info
 
+def unique(list1):
+ 
+    # initialize a null list
+    unique_list = []
+ 
+    # traverse for all elements
+    for x in list1:
+        # check if exists in unique_list or not
+        if x not in unique_list:
+            unique_list.append(x)
+            
+    return len(unique_list)
+
 train_folder_path = "../train_folder_predilex/train_folder/txt_files/"
 train_files_ids_path = "../train_folder_predilex/train_folder/x_train_ids.csv"
 
@@ -16,6 +29,8 @@ max_acc = 0
 total_number_of_dates_of_cons = 0
 min_cons = 1000
 max_cons = 0
+
+unique_dates_in_corpus = 0
 
 with open(train_files_ids_path, 'r', encoding="utf8") as file:
     text_dates = get_dates()
@@ -44,6 +59,8 @@ with open(train_files_ids_path, 'r', encoding="utf8") as file:
         if len(dates)>max:
             max = len(dates)
             text_indx = i
+            
+        unique_dates_in_corpus += unique(dates)
 
 print("The total number of dates in the corpus is : ",total_dates_in_corpus)
 print("With an average number of dates per text of: ",total_dates_in_corpus/772)
@@ -60,3 +77,5 @@ print("\nThe total number of consolidation dates in the corpus is : ",total_numb
 print("With an average number of dates per text of: ", total_number_of_dates_of_cons/772)
 print("The maximum number of dates of consolidation per text is: ", max_cons)
 print("The minimum number of dates of consolidation per text is: ", min_cons)
+
+print("\nThe number of unique dates per text is: ", unique_dates_in_corpus/772)
