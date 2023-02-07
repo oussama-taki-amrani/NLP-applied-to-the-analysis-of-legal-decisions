@@ -63,19 +63,19 @@ with open(train_files_ids_path, 'r', encoding="utf8") as file:
         unique_dates_in_corpus += unique(dates)
 
 print("The total number of dates in the corpus is : ",total_dates_in_corpus)
-print("With an average number of dates per text of: ",total_dates_in_corpus/772)
+print("With an average number of dates per text of: ",total_dates_in_corpus/770)
 print("The maximum number of dates per text is: ", max)
 print("The minimum number of dates per text is: ", min)
 
 
 print("\nThe total number of accident dates in the corpus is : ",total_number_of_dates_of_accident)
-print("With an average number of dates per text of: ", total_number_of_dates_of_accident/772)
+print("With an average number of dates per text of: ", total_number_of_dates_of_accident/770)
 print("The maximum number of dates of accident per text is: ", max_acc)
 print("The minimum number of dates of accident per text is: ", min_acc)
 
 print("\nThe total number of consolidation dates in the corpus is : ",total_number_of_dates_of_cons)
-print("With an average number of dates per text of: ", total_number_of_dates_of_cons/772)
+print("With an average number of dates per text of: ", total_number_of_dates_of_cons/770)
 print("The maximum number of dates of consolidation per text is: ", max_cons)
 print("The minimum number of dates of consolidation per text is: ", min_cons)
 
-print("\nThe number of unique dates per text is: ", unique_dates_in_corpus/772)
+print("\nThe number of unique dates per text is: ", unique_dates_in_corpus/770)
