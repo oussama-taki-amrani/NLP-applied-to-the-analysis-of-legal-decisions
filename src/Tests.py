@@ -103,7 +103,7 @@ def make_test(Test_IDS,vec,classifier):
 
 model_acc = np.zeros([len(splited_IDs),4])
 for k in range(len(splited_IDs)):
-    print("Chunk N°",k," out of ",len(splited_IDs))
+    print("Chunk No",k+1," out of ",len(splited_IDs))
     train_ids = []
     test_ids = []
     for i in range(len(splited_IDs)):
