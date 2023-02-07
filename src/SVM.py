@@ -1,4 +1,4 @@
-from Data_frame import df_train
+from Data_frame import df_train, create_dataframe
 import numpy as np
 from sklearn import svm, linear_model, ensemble
 import json
@@ -20,7 +20,7 @@ def compute_words_occurence(labelized_sentences):
             total_of_words_per_class[label]+=1
     total_of_words = sum(total_of_words_per_class)
     percentage_of_words = [x / total_of_words for x in total_of_words_per_class]
-    print(percentage_of_words)
+    # print(percentage_of_words)
     return occurences,percentage_of_words
 
 def scores_from_occurences(occurences,percentage,alpha=0.2):
@@ -66,42 +66,52 @@ def encode_sentence(sentence,words_vec):
 
 
 #Computing scores
-occurences,percentages = compute_words_occurence(df_train)
-vec, sorted_scores = get_best_scores(scores_from_occurences(occurences,percentages))
-with open("../outputs/sorted_scores_accident.txt", 'w') as file:
-    file.write(json.dumps(sorted_scores[0]))
-with open("../outputs/sorted_scores_consolidation.txt", 'w') as file:
-    file.write(json.dumps(sorted_scores[1]))
-with open("../outputs/sorted_scores_other.txt", 'w') as file:
-    file.write(json.dumps(sorted_scores[2]))
+# occurences,percentages = compute_words_occurence(df_train)
+# vec, sorted_scores = get_best_scores(scores_from_occurences(occurences,percentages))
+# with open("../outputs/sorted_scores_accident.txt", 'w') as file:
+#     file.write(json.dumps(sorted_scores[0]))
+# with open("../outputs/sorted_scores_consolidation.txt", 'w') as file:
+#     file.write(json.dumps(sorted_scores[1]))
+# with open("../outputs/sorted_scores_other.txt", 'w') as file:
+#     file.write(json.dumps(sorted_scores[2]))
 
-for k,v in sorted_scores[0].items():
-    print(k,(30-len(k))*" ",":",v,end="      ")
-    print(occurences[0][k],"       ",occurences[1][k]+occurences[2][k])
-print("="*100)
-for k,v in sorted_scores[1].items():
-    print(k,(30-len(k))*" ",":",v,end="      ")
-    print(occurences[1][k],"       ",occurences[0][k]+occurences[2][k])
-print("="*100)
-for k,v in sorted_scores[2].items():
-    print(k,(30-len(k))*" ",":",v,end="      ")
-    print(occurences[2][k],"       ",occurences[1][k]+occurences[0][k])
-print("="*100)
+# for k,v in sorted_scores[0].items():
+#     print(k,(30-len(k))*" ",":",v,end="      ")
+#     print(occurences[0][k],"       ",occurences[1][k]+occurences[2][k])
+# print("="*100)
+# for k,v in sorted_scores[1].items():
+#     print(k,(30-len(k))*" ",":",v,end="      ")
+#     print(occurences[1][k],"       ",occurences[0][k]+occurences[2][k])
+# print("="*100)
+# for k,v in sorted_scores[2].items():
+#     print(k,(30-len(k))*" ",":",v,end="      ")
+#     print(occurences[2][k],"       ",occurences[1][k]+occurences[0][k])
+# print("="*100)
 
 # Setting up the training datas
-x_train = np.zeros([len(df_train['Sentences']), len(vec)])
-y_train = np.zeros(len(df_train['Label']))
-print(df_train['Label'])
-for i in range(len(df_train['Label'])):
-    x_train[i,:] = encode_sentence(df_train['Sentences'][i],vec)
-    y_train[i] = df_train['Label'][i]
+def create_train_vectors(df_train,vec):
+    x_train = np.zeros([len(df_train['Sentences']), len(vec)])
+    y_train = np.zeros(len(df_train['Label']))
+    # print(df_train['Label'])
+    for i in range(len(df_train['Label'])):
+        x_train[i,:] = encode_sentence(df_train['Sentences'][i],vec)
+        y_train[i] = df_train['Label'][i]
+    return x_train,y_train
+
+
+def train_on_datas(df_train):
+    occurences,percentages = compute_words_occurence(df_train)
+    vec, sorted_scores = get_best_scores(scores_from_occurences(occurences,percentages))
+    x_train,y_train = create_train_vectors(df_train,vec)
+    classifier = linear_model.LogisticRegression(max_iter=150)
+    classifier.fit(x_train, y_train)
+    return classifier,vec
+classifier,vec = train_on_datas(df_train)
 #Training the SVM
 # classifier = svm.SVC(kernel='sigmoid',probability=True)
-classifier = linear_model.LogisticRegression(max_iter=150)
 # classifier = ensemble.RandomForestClassifier()
-print("Start learning")
-print("taille",len(y_train))
-classifier.fit(x_train,y_train)
 
+
+# Cross validation
 
 

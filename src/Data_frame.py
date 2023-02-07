@@ -350,6 +350,33 @@ def select_80_percent():
     return IDs  
                 
 IDs = select_80_percent()
+
+
+def split_datas(K,ids):
+    """
+    K : number of data chunks
+    ids : list of ids to split
+    """
+    ids = np.array(ids)
+    k_datas = []
+    step = len(ids)//K
+    start = 0
+    end = step
+    for k in range(K):
+        if k==K-1:
+            k_datas.append(ids[start:])
+            continue
+        k_datas.append(ids[start:end])
+        start += step
+        end += step
+    return k_datas
+        
+
+
+K = 10
+splited_IDs = split_datas(K,IDS_771)
+
+
 Train_IDS = []
 for i in range(0, len(IDs)-1):
     Train_IDS.extend(sample(range(IDs[i], IDs[i+1]), floor((80/100)*(IDs[i+1] - IDs[i]))))
