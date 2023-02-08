@@ -1,6 +1,6 @@
 # Tests
 from Data_frame import create_dataframe, Test_IDS, get_dates, splited_IDs
-from SVM import vec, classifier, encode_sentence, train_on_datas
+from SVM import encode_sentence, train_on_datas
 import numpy as np
 
 class colors:
@@ -103,6 +103,7 @@ def make_test(Test_IDS,vec,classifier):
 
 model_acc = np.zeros([len(splited_IDs),4])
 for k in range(len(splited_IDs)):
+    print(splited_IDs[k])
     print("Chunk No",k+1," out of ",len(splited_IDs))
     train_ids = []
     test_ids = []
@@ -112,7 +113,7 @@ for k in range(len(splited_IDs)):
             continue
         train_ids.extend(splited_IDs[i])
     classifier,vec = train_on_datas(create_dataframe(train_ids))
-    model_acc[k,:] = make_test(Test_IDS,vec,classifier)
+    model_acc[k,:] = make_test(test_ids,vec,classifier)
     print("="*15)
 acc_moyenne = np.mean(model_acc,axis = 0)
 print("="*100)

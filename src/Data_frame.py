@@ -356,6 +356,7 @@ def split_datas(K,ids):
     """
     K : number of data chunks
     ids : list of ids to split
+    return a list of k-lists corresponding to the splitted 
     """
     ids = np.array(ids)
     k_datas = []
