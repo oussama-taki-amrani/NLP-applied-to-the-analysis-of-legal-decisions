@@ -26,9 +26,9 @@ def compute_words_occurence(labelized_sentences):
 def scores_from_occurences(occurences,percentage,alpha=0.2):
     scores = [{},{},{}]
     for word in occurences[0]:
-        scores[0][word] = occurences[0][word] / (1 + alpha*(occurences[1][word] + 0.05*occurences[2][word]))
+        scores[0][word] = occurences[0][word] / (1 + alpha*(occurences[1][word] + 0.02*occurences[2][word]))
         scores[1][word] = occurences[1][word] / (1 + alpha*(occurences[0][word] + 0.05*occurences[2][word]))
-        scores[2][word] = occurences[2][word] / (1 + alpha*(5*occurences[0][word] + 5*occurences[1][word]))
+        scores[2][word] = occurences[2][word] / (1 + alpha*(10*occurences[0][word] + 5*occurences[1][word]))
     return scores
 
 #Sorting scores
@@ -104,11 +104,10 @@ def train_on_datas(df_train):
     vec, sorted_scores = get_best_scores(scores_from_occurences(occurences,percentages))
     x_train,y_train = create_train_vectors(df_train,vec)
     classifier = linear_model.LogisticRegression(max_iter=150)
+    # classifier = svm.SVC(kernel='sigmoid',probability=True)
     classifier.fit(x_train, y_train)
     return classifier,vec
-# classifier,vec = train_on_datas(df_train)
-#Training the SVM
-# classifier = svm.SVC(kernel='sigmoid',probability=True)
+
 # classifier = ensemble.RandomForestClassifier()
 
 
