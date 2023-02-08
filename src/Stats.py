@@ -1,5 +1,7 @@
 import csv
 from Data_frame import get_dates, file_info
+import numpy as np
+import matplotlib.pyplot as plt
 
 def unique(list1):
  
@@ -13,6 +15,11 @@ def unique(list1):
             unique_list.append(x)
             
     return len(unique_list)
+
+# function to add value labels (from geeksforgeeks)
+def addlabels(x,y,decalage):
+    for i in range(len(x)):
+        plt.text(i, y[i], str(y[i])+" %", ha = 'center',fontsize=12,position = (i,y[i] + decalage))
 
 train_folder_path = "../train_folder_predilex/train_folder/txt_files/"
 train_files_ids_path = "../train_folder_predilex/train_folder/x_train_ids.csv"
@@ -79,3 +86,21 @@ print("The maximum number of dates of consolidation per text is: ", max_cons)
 print("The minimum number of dates of consolidation per text is: ", min_cons)
 
 print("\nThe number of unique dates per text is: ", unique_dates_in_corpus/770)
+
+# Make a random dataset:
+height = [0.1253*100, 0.0304*100, 0.8441*100]
+bars = ('Accident', 'Consolidation', 'None')
+
+y_pos = np.arange(len(bars))
+
+# Create bars
+plt.bar(y_pos, height, color = ['green', 'red', 'blue'])
+
+plt.title('Percentage of the training data of each class')
+
+# Create names on the x-axis
+plt.xticks(y_pos, bars)
+
+addlabels(bars,height,1)
+# Show graphic
+plt.show()

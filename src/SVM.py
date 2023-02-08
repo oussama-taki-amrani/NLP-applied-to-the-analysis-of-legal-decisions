@@ -20,7 +20,7 @@ def compute_words_occurence(labelized_sentences):
             total_of_words_per_class[label]+=1
     total_of_words = sum(total_of_words_per_class)
     percentage_of_words = [x / total_of_words for x in total_of_words_per_class]
-    # print(percentage_of_words)
+    print(percentage_of_words)
     return occurences,percentage_of_words
 
 def scores_from_occurences(occurences,percentage,alpha=0.2):
