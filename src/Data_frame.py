@@ -6,6 +6,7 @@ import pandas as panda
 from dates import months, date_f1, date_f2,pattern_f
 from random import sample
 from math import floor
+from sklearn.model_selection import KFold
 import numpy as np
 import os
 
@@ -351,12 +352,12 @@ def select_80_percent():
                 
 IDs = select_80_percent()
 
-
+"""
 def split_datas(K,ids):
-    """
-    K : number of data chunks
-    ids : list of ids to split
-    """
+    
+    # K : number of data chunks
+    # ids : list of ids to split
+    
     ids = np.array(ids)
     k_datas = []
     step = len(ids)//K
@@ -370,14 +371,31 @@ def split_datas(K,ids):
         start += step
         end += step
     return k_datas
-        
+"""        
 
 
-K = 10
-splited_IDs = split_datas(K,IDS_771)
+K = 6
+# splited_IDs = split_datas(K,IDS_771)
 
+kf = KFold(n_splits=K,shuffle=True)
+kf.get_n_splits(IDS_771)
+"""
+for i, (Train_IDS, Test_IDS) in enumerate(kf.split(IDS_771)):
+    print(f"  Train: {Train_IDS}")
+    print(f"  Test:  {Test_IDS}")
+    
+    df_train = create_dataframe(Train_IDS)
+    df_test = create_dataframe(Test_IDS)
+    
+    df_0_1=df_train.loc[df_train['Label'].isin([0,1])]
+    df_2=df_train.loc[df_train['Label'] == 2]
+    
+    frames = [df_0_1, df_2]
+    result = panda.concat(frames, ignore_index=True, sort=False)
+    df_train = result
+"""
 
-Train_IDS = []
+"""
 for i in range(0, len(IDs)-1):
     Train_IDS.extend(sample(range(IDs[i], IDs[i+1]), floor((80/100)*(IDs[i+1] - IDs[i]))))
 
@@ -397,3 +415,5 @@ df_2=df_train.loc[df_train['Label'] == 2]
 frames = [df_0_1, df_2]
 result = panda.concat(frames, ignore_index=True, sort=False)
 df_train = result
+
+"""

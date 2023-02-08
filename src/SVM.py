@@ -1,4 +1,4 @@
-from Data_frame import df_train, create_dataframe
+from Data_frame import create_dataframe
 import numpy as np
 from sklearn import svm, linear_model, ensemble
 import json
@@ -106,7 +106,7 @@ def train_on_datas(df_train):
     classifier = linear_model.LogisticRegression(max_iter=150)
     classifier.fit(x_train, y_train)
     return classifier,vec
-classifier,vec = train_on_datas(df_train)
+# classifier,vec = train_on_datas(df_train)
 #Training the SVM
 # classifier = svm.SVC(kernel='sigmoid',probability=True)
 # classifier = ensemble.RandomForestClassifier()

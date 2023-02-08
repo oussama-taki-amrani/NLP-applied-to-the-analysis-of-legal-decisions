@@ -1,6 +1,6 @@
 # Tests
-from Data_frame import create_dataframe, Test_IDS, get_dates, splited_IDs
-from SVM import vec, classifier, encode_sentence, train_on_datas
+from Data_frame import create_dataframe, get_dates, kf, K, IDS_771
+from SVM import  encode_sentence, train_on_datas
 import numpy as np
 
 class colors:
@@ -101,18 +101,15 @@ def make_test(Test_IDS,vec,classifier):
     print("Precision consoldiation = ",prec_per_classe[1],"%")
     return prec_per_doc,prec_per_date,prec_per_classe[0],prec_per_classe[1]
 
-model_acc = np.zeros([len(splited_IDs),4])
-for k in range(len(splited_IDs)):
-    print("Chunk No",k+1," out of ",len(splited_IDs))
+model_acc = np.zeros([K,4])
+for i, (Train_IDS, Test_IDS) in enumerate(kf.split(IDS_771)):
+    print("Chunk No",i+1," out of ",K)
     train_ids = []
     test_ids = []
-    for i in range(len(splited_IDs)):
-        if i==k:
-            test_ids = splited_IDs[i]
-            continue
-        train_ids.extend(splited_IDs[i])
-    classifier,vec = train_on_datas(create_dataframe(train_ids))
-    model_acc[k,:] = make_test(Test_IDS,vec,classifier)
+    
+    
+    classifier,vec = train_on_datas(create_dataframe(Train_IDS))
+    model_acc[i,:] = make_test(Test_IDS,vec,classifier)
     print("="*15)
 acc_moyenne = np.mean(model_acc,axis = 0)
 print("="*100)
