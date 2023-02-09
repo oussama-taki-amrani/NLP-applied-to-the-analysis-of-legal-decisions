@@ -2,3 +2,4 @@
 
 [![Author](https://img.shields.io/badge/author-@Mohamed_FAID-red)](https://github.com/Simoahmed0)
 [![Author](https://img.shields.io/badge/author-@Oussama_TAKI_AMRANI-blue)](https://github.com/oussama-taki-amrani)
+[![Author](https://img.shields.io/badge/author-@Oussama_TAKI_AMRANI-blue)](https://github.com/ZizmanTK)
